@@ -18,6 +18,8 @@ if socket.gethostname() == 'micah-PC':
     from rmlsa.settings_dev import *
 elif socket.gethostname() == 'ip-172-31-47-20':
     from rmlsa.settings_prod import *
+elif socket.gethostname() == 'piserv':
+    from rmlsa.settings_test import *
 else:
     from rmlsa.settings_dev import *
 
