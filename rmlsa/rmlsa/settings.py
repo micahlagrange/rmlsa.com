@@ -21,7 +21,7 @@ elif socket.gethostname() == 'ip-172-31-47-20':
 elif socket.gethostname() == 'piserv':
     from rmlsa.settings_test import *
 else:
-    from rmlsa.settings_dev import *
+    from rmlsa.settings_test import *
 
 
 LOGIN_REDIRECT_URL = '/edit/index/'
