@@ -1,0 +1,45 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <form method="get" action="{% url 'search:search' %}">
+
+
+    <label>Search:</label>
+
+    <input type="text" name="searchword" id="searchword"/>
+    <input class="btn" type="submit" value="Search"/>
+
+    </form>
+    <p>You searched for "{{ query_string }}" and the results are listed below.</p>
+
+    {% if found_drivers %}
+    <div class="search_results">
+        <h3>Drivers</h3>
+        <div id="search_result">
+            <ul id="no_bullet">
+                {% for driver in found_drivers %}
+                    <li><a href="{% url 'p_anchor' %}#{{driver.first_name.lower}}{{driver.last_name.lower}}">
+                        {{ driver.first_name.title }} {{ driver.last_name.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    {% if found_pictures %}
+    <div class="search_results">
+        <h3>Pictures</h3>
+        <div id="search_result">
+            <ul id="no_bullet">
+                {% for driver in found_pictures %}
+                    <li><a href=""> </a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+{% endblock%}
+

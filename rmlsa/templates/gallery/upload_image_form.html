@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Upload Images{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div class="contentheading" >Gallery admin</div>
+    <li><h3>Upload an image to the gallery</h3></li>
+    {% if form %}
+    <form id="gallery" action="{% url 'gallery:upload_image' %}" method="post" enctype="multipart/form-data">
+        <div class="indented-form">
+            {% csrf_token %}
+            <div id="error">{{ form.name.errors }}</div>
+            <label>Create short name:</label>
+            {{ form.name }}
+
+            <div id="error">{{ form.caption.errors }}</div>
+            <label>Enter a caption:</label>
+            {{ form.caption }}
+
+            <div id="error">{{ form.date.errors }}</div>
+            <label>Date taken:</label>
+            {{ form.date }}
+
+            <div id="error">{{ form.image.errors }}</div><br>
+            {{ form.image }}
+        </div>
+        <input class="btn" type="submit" value="Upload">
+    </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Delete?{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    {% if partner %}
+        <h1>-- Delete {{ partner.name }} --</h1>
+        <h2>Are you sure you want to delete {{ partner.name }}? </h2>
+        <h3>This action is permanent and cannot be undone!</h3>
+        <form method="post" action="{% url 'home:delete_partner' partner.id %}">
+            {% csrf_token %}
+            {{ form.is_submitted }}
+            <input class="delbtn" type="submit" value="DELETE" />
+        </form>
+        <a href="{% url 'home:home' %}" class="btn">CANCEL</a>
+    {% else %}
+        <h3>invalid request</h3>
+        <a href="{% url 'home:home' %}" class="btn">Return to home</a>
+    {% endif %}
+{% endblock %}

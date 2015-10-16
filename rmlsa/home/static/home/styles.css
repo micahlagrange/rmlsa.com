@@ -1,0 +1,22 @@
+#center-column { text-align: center; }
+#logo { width: 100%; max-width: 900px;}
+#inset-graphic { width: 100%; max-width: 900px; }
+#middle-third { text-align: left; }
+
+h1 {
+    font-family: "Trebuchet MS", Verdana, sans serif;
+}
+.otto {
+    text-shadow:
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+.caps { text-transform: capitalize; }
+.sents:first-letter { text-transform: uppercase; }
+.no_bullet { list-style-type: none; }
+.article_img { width: 100%; }

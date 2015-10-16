@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div style="overflow:hidden">
+        <div class="contentheading">Driver Profiles</div>
+        {% for driver in drivers %}
+        <div id="info_pane_left" style="float: left; padding: 10px; width:300px; background-color: #4D4D4D; border-radius: 5px;" >
+        {% with driver.profile_set.all|first as profile %}
+            <h3 id="{{driver.first_name.lower}}{{driver.last_name.lower}}">
+                {{ driver }}
+            </h3>
+            {% with driver.sprintcar_set.all as cars %}
+                {% if cars|length > 1 %}
+                    Cars:
+                        <ul id="no_bullet">
+                        {% for car in cars %}
+                            <li>{{ car.car_info|default_if_none:"" }} {{ car.number|default_if_none:"" }}</li>
+                        {% endfor %}
+                        </ul>
+                {% else %}
+                    Car: {% for car in cars %}{{ car.car_info|default_if_none:"" }} {{ car.number|default_if_none:"" }}{% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% if profile.email %}<p>Email:{{ profile.email }}</p>{% endif %}
+
+            {% with driver.sponsors.all as sponsors %}
+                {% if sponsors %}
+                    <br>Sponsors:<ul id="no_bullet">
+                    {% for s in sponsors %}
+                        <li>
+                            {% if s.url %}<a href="{{ s.url }}">{{ s.name.title }}</a>
+                            {% else %}{{ s.name.title }}{% endif %}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div id="profile_picture" style="float: left; padding: 10px;">
+            {% if profile.image %}<img width="100%" src="{{ MEDIA_URL }}{{ profile.image }}">{% endif %}
+        </div>
+        {% endwith %}
+        {% endfor %}
+    </div>
+{% endblock %}

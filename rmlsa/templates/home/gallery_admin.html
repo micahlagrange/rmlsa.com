@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Gallery - Admin{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div class="contentheading" >Gallery admin page</div>
+    <h3>Menu</h3>
+    <ul>
+        <li><a href="{% url 'gallery:upload_image' %}">Upload Image</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+{% endblock %}

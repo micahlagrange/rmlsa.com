@@ -1,0 +1,16 @@
+{% extends 'home/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Membership{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div class="contentheading">Membership Application</div>
+    <div style="padding-left:40px;">
+        <p>Please download the membership application form here.</p>
+        <a title="Membership Form" target="_blank"
+           href="{% static 'home/pdf/2015_rmlsa_registration_form.pdf' %}"><h1>Membership Application</h1></a>
+    </div>
+{% endblock %}

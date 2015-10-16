@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+
+{% block title %}RMLSA Gallery Archive{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+
+    <div class="contentheading">RMLSA Gallery Index</div>
+    <ul id="no_bullet">
+        <li><a href="{% url 'gallery:picture_archive' 2013 %}">2013 RMLSA Gallery Archive</a></li>
+        <li><a href="{% url 'gallery:picture_archive' 2012 %}">2012 RMLSA Gallery Archive</a></li>
+        <li><a href="{% url 'gallery:picture_archive' 2011 %}">2011 RMLSA Gallery Archive</a></li>
+    </ul>
+{% endblock %}

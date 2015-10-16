@@ -1,0 +1,130 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div id="component">
+    <div class="padding">
+        <div class="moduletable">
+            <h3>Welcome to the RMLSA</h3>
+            <p align="justify">
+                {{ welcome_message.text|safe }}
+            </p>
+            <!--<p align="center">****************************************************************</p>-->
+            <!--<p align="center">Check out our <a href="/classified/url/here/"><b><i>classified</i></b></a>-->
+                <!--for cars and parts to get started or upgrade.-->
+            <!--</p>-->
+            <!--<p align="center">*******************************************************</p>-->
+
+            {% comment %}RMLSA events{% endcomment %}
+
+            <div class="moduletable" style="margin-top: 50px; margin-bottom: 100px">
+                {% if past_events %}
+                <h3>Past RMLSA Events</h3>
+                <table id="eventtable" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#666666">
+                    <tr>
+                        <th bgcolor="black">Date</th>
+                        <th bgcolor="black">Title</th>
+                        <th bgcolor="black">Track</th>
+                        <th bgcolor="black">City</th>
+                        <th bgcolor="black">Category</th>
+                        {% if winners %}
+                            <th bgcolor="black">Winner</th>
+                        {% endif %}
+                    </tr>
+                    {% for event in past_events reversed %}
+                        <tr>
+                            <td bgcolor="#333333">{{ event.date }}</td>
+                            <td bgcolor="#333333">{{ event }}</td>
+                            <td bgcolor="#333333">{{ event.venue }}</td>
+                            <td bgcolor="#333333">{{ event.venue.city }}</td>
+                            <td bgcolor="#333333">{{ event.car_type|default:"" }}</td>
+                            {% if winners %}
+                                <td id="winners" bgcolor="#333333">{{ event.winner|default:"" }}</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+
+                {% if rmlsa_events %}
+                <h3>Upcoming RMLSA Events</h3>
+                <table id="eventtable" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#666666">
+                    <tr>
+                        <th bgcolor="black">Date</th>
+                        <th bgcolor="black">Title</th>
+                        <th bgcolor="black">Track</th>
+                        <th bgcolor="black">City</th>
+                        <th bgcolor="black">Category</th>
+                    </tr>
+                    {% for event in rmlsa_events %}
+                        <tr>
+                            <td bgcolor="#333333">{{ event.date }}</td>
+                            <td bgcolor="#333333">{{ event }}</td>
+                            <td bgcolor="#333333">{{ event.venue }}</td>
+                            <td bgcolor="#333333">{{ event.venue.city }}</td>
+                            <td bgcolor="#333333">{{ event.car_type|default:"" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+
+                <p>To view the complete RMLSA Schedule <a href="{% url 'home:schedule' %}">click here</a>.</p>
+            </div>
+
+            {% if news_articles %}
+                {% for a in news_articles %}
+                <div class="moduletable" id="news_article">
+                    <p style="float: right;"><i>Published on {{ a.pub_date }}</i></p>
+                    <h1>
+                        <span style="color: #ffd700">
+                        {{ a.title }}
+                        </span>
+                    </h1>
+                    {% if a.subtitle %}<h4>{{ a.subtitle }}</h4>{% endif %}
+
+                    {% with a.articleimage_set.all|first as image %}
+                        {% if image %}
+                            <img id="article_img" src="{{ MEDIA_URL }}{{ image.image }}" title="{{ image.name }}">
+                        {% endif %}
+                    {% endwith %}
+
+                    <div style="padding: 1em 1em 1em 0;">{{ a.text|linebreaks }}</div>
+
+
+                    {% with a.articleurl_set.all as urls %}
+                        {% if urls %}
+                            <div style="clear: both;">
+                                <h3>Links</h3>
+                                <ul id="no_bullet">
+                                {% for url in urls %}
+                                    <li><a href="{{ url.url }}">{{ url.name }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                    {% with a.youtubeembedlink_set.all as yt_set %}
+                        {% if yt_set %}
+
+                            <h3>Youtube videos</h3>
+                            {% for yt_video in yt_set  %}
+                                {{ yt_video.link|safe }}<br><br>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                {% endfor %}
+            {% else %}
+                {% if user.is_authenticated %}
+                    <p>There are no articles yet. Go to the <a href="/admin/">Admin site to create some!</a></p>
+                {% endif %}
+            {% endif %}
+
+
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

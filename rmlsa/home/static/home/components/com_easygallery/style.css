@@ -1,0 +1,8 @@
+.photos img {
+  margin: 2px;
+}
+
+.photo {
+  float: left;
+  margin: 3px;
+}

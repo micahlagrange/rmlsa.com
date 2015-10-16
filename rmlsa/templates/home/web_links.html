@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Web links{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content%}
+    <div class="contentheading" >Web Links</div>
+    <p>We are regularly out on the web. When we find a great site we list it here for you to enjoy.
+        From the list below choose one of our weblink topics, then select a URL to visit.</p>
+
+    {% if links %}
+        {% for category, links in links.items %}
+        <div id="info_pane_left">
+            <div class="componentheading">{{ category }}</div>
+            <ul id="no_bullet">
+            {% for link in links %}
+                <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div style="width:100%;margin-right:300px;"></div>
+        {% endfor %}
+    {% else %}
+        <p>There are no links yet.</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,197 @@
+div.wrapper { margin: 0 auto; width: 950px;padding:0;}
+td.secondcol { width: 25%;}
+td.thirdcol { width: 0;}
+.shadow-3 { width: 632px;}
+
+#page_heading {
+    background-color:191919;
+    color:white;
+    text-align:center;
+    padding:5px;
+    border-radius: 5px;
+}
+
+.smaller_inset {
+    margin: 25px;
+}
+
+#horiz-menu{-webkit-text-size-adjust: none;}
+.suckerfish{-webkit-text-size-adjust: none;}
+
+#maincol {font-size: 90%; -webkit-text-size-adjust: none;}
+.maincol {font-size: 90%; -webkit-text-size-adjust: none;}
+.secondcol {font-size: 90%; -webkit-text-size-adjust: none;}
+.secondcol a {font-size: 90%; -webkit-text-size-adjust: none;}
+
+#login{
+    color: white;
+}
+
+#eventtable{
+    color: white;
+    font-size:100%;
+    white-space:nowrap;
+}
+
+#winners{
+    color: yellow;
+}
+
+.partnerimage{
+    max-width:180px;
+    float:left;
+    padding:10px;
+}
+
+h1.small {
+    font-size: 60px;
+}
+h1#small {
+    font-size: 60px;
+}
+
+.gallery_video{padding:10px;}
+
+.indented-form{
+    line-height:40px;
+    width:75%;
+    background-color:#191919;
+    border-radius:1em;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+#from_gallery {max-width:166px;}
+
+#info_pane_left {
+    line-height:15px;
+    background-color: #191919 !important;
+    width:370px;
+    float:left;
+    padding:15px;
+    margin-top:5px;
+    margin-bottom: 5px;
+    margin-right:10px;
+}
+
+#profile_picture {
+    width:250px;
+    float:left;
+    padding:10px;
+}
+
+#sub_page{
+    color: white;
+}
+
+#gallery_img {
+    display: block;
+    max-width:600px;
+    max-height:500px;
+    width: auto;
+    height: auto;
+}
+
+#article_img {
+    max-width:300px;
+    max-height:500px;
+    width: auto;
+    height: auto;
+    float: right;
+    padding: 10px;
+}
+
+#news_article {
+    margin-top:50px;
+    padding:10px;
+    background-color: #191919;
+    border-radius: 1em;
+}
+
+#no_bullet {
+    list-style-type: none;
+}
+
+.search_results{
+    background-color: #191919;
+    border-radius: 1em;
+    padding: 2em;
+}
+#search_result{
+    padding:10px;
+    padding-left:1em;
+    padding-top: 0;
+}
+
+#ad-list {width: 100%}
+.ad-box {
+    background-color: #0C0C0C;
+    margin: 2em 0 0 2em;
+    padding: 2em 0 0 2em;
+    border-radius: 1em;
+}
+.ad-box-desc {float:left;}
+.ad-box p {clear:both; padding: 1em;}
+.ad-thumb {max-width: 100px; float:left; padding-right: 1em;}
+.ad-image-container {float:left;}
+.ad-image {max-width: 600px;}
+.ad-details {width: 100%; clear: both; padding: 2em 0 5em 2em; }
+#ad-detail-desc-box {background-color: #0C0C0C; border-radius: 5px; margin-right: 5em;}
+#ad-detail-desc {padding: 2em;}
+#ad-detail-desc p {padding: 1em 0 0 2em;}
+
+
+
+.btn {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    font-family: Arial, serif;
+    color: white !important;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+}
+
+.delbtn {
+    background: #c40827;
+    background-image: -webkit-linear-gradient(top, #c40827, #f25959);
+    background-image: -moz-linear-gradient(top, #c40827, #f25959);
+    background-image: -ms-linear-gradient(top, #c40827, #f25959);
+    background-image: -o-linear-gradient(top, #c40827, #f25959);
+    background-image: linear-gradient(to bottom, #c40827, #f25959);
+    -webkit-border-radius: 7;
+    -moz-border-radius: 7;
+    border-radius: 7px;
+    font-family: Arial;
+    color: #ffffff !important;
+    font-size: 20px;
+    padding: 0px 7px 3px 8px;
+    text-decoration: none;
+}
+
+.delbtn:hover {
+    background: #6b2323;
+    background-image: -webkit-linear-gradient(top, #6b2323, #ff0000);
+    background-image: -moz-linear-gradient(top, #6b2323, #ff0000);
+    background-image: -ms-linear-gradient(top, #6b2323, #ff0000);
+    background-image: -o-linear-gradient(top, #6b2323, #ff0000);
+    background-image: linear-gradient(to bottom, #6b2323, #ff0000);
+    text-decoration: none;
+}
+
+.contentpaneopen{
+    color: white;
+}

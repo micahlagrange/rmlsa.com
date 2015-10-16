@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Info{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div class="contentheading">RMLSA Information</div>
+        {{ welcome_message.text|safe }}
+        <br><br>
+        <div class="back_button">
+            <a href="{% url 'home:home' %}">[ Back ]</a>
+        </div>
+{% endblock %}

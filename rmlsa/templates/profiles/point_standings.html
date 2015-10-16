@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div class="contentheading">{% now "Y" %} Point Standings</div>
+
+    <div style="padding: 2em;">
+        <table id="eventtable" border="0">
+            <tr>
+                <th width="150px;" bgcolor="grey">Name</th>
+                <th width="100px;" bgcolor="grey">Points</th>
+            </tr>
+            {% for driver in drivers %}
+                <tr>
+                    <td bgcolor="black">{{ driver.first_name }} {{ driver.last_name }}</td>
+                    <td bgcolor="black">{{ driver.points }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

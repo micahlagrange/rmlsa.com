@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Schedule{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div class="contentheading">Full Season Schedule</div>
+    <div class="moduletable" style="margin-top: 50px; margin-bottom: 100px">
+        <table id="eventtable" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#666666">
+            <tr>
+                <th bgcolor="black">Date</th>
+                <th bgcolor="black">Title</th>
+                <th bgcolor="black">Track</th>
+                <th bgcolor="black">City</th>
+                <th bgcolor="black">Category</th>
+                <th bgcolor="black">Winner</th>
+            </tr>
+            {% for event in events %}
+                <tr>
+                    <td bgcolor="#333333">{{ event.date }}</td>
+                    <td bgcolor="#333333">{{ event }}</td>
+                    <td bgcolor="#333333">{{ event.venue }}</td>
+                    <td bgcolor="#333333">{{ event.venue.city }}</td>
+                    <td bgcolor="#333333">{{ event.car_type|default:"" }}</td>
+                    <td bgcolor="#333333">{{ event.winner|default:"" }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

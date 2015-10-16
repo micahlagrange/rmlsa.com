@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Ad {{ ad.id }} Details{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <div class="contentheading">Classifieds - {{ ad.name }} | ${{ ad.price }}</div>
+    <p><i>Posted: {{ ad.date }}</i></p>
+    <div class="ad-image-container">
+        <img class="ad-image" src="{{ MEDIA_URL }}{{ ad.image }}">
+    </div>
+    <div class="ad-details">
+        <p><strong>Asking Price</strong>: ${{ ad.price }}</p>
+        <p><strong>Name: </strong>{{ ad.name }}</p>
+        <div id="ad-detail-desc-box">
+            <div id="ad-detail-desc">
+                <h4>Description:</h4>
+                <p>{{ ad.description }}</p>
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'classifieds:index' %}">Back</a>
+{% endblock %}

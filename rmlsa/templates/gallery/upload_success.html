@@ -1,0 +1,10 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Success{% endblock %}
+
+{% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
+
+{% block content %}
+    <br><br><br>
+    <a class="btn" href="{% url 'home:home' %}">Back home</a>
+{% endblock %}
