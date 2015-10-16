@@ -30,7 +30,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/dir/django_projects/logging/rmlsa.log',
+            'filename': '../../logging/rmlsa.log',
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 10,
             'formatter': 'verbose',
