@@ -2,6 +2,7 @@ __author__ = 'micah'
 
 DEBUG = TEMPLATE_DEBUG = True
 
+# Jenkins should just use the project folder
 DATABASE_DIR = '../..'
 STATIC_ROOT = '../../home/static'
 MEDIA_ROOT = '../../media'
