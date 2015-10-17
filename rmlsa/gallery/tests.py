@@ -1,5 +1,5 @@
 from django.test import TestCase
-from rmlsa.gallery import GalleryImage
+from gallery.models import GalleryImage
 
 # Create your tests here.
 
