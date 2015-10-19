@@ -2,13 +2,13 @@ __author__ = 'micah'
 
 DEBUG = TEMPLATE_DEBUG = True
 
-DATABASE_DIR = '/dir/django_projects/db'
-STATIC_ROOT = '/dir/django_projects/static'
-MEDIA_ROOT = '/dir/django_projects/media'
+DATABASE_DIR = '/usr/local/rmlsa.com/db'
+STATIC_ROOT = '/usr/local/rmlsa.com/static'
+MEDIA_ROOT = '/usr/local/rmlsa.com/media'
 
 # Static files
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+STATIC_URL='/static/'
+MEDIA_URL='/media/'
 
 SERVER_EMAIL = 'rmlsa.site@gmail.com'
 
@@ -30,7 +30,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/dir/django_projects/logging/rmlsa.log',
+            'filename': '/usr/local/rmlsa.com/logging/rmlsa.log',
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 10,
             'formatter': 'verbose',

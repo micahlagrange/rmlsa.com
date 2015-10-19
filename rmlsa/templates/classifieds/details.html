@@ -7,18 +7,23 @@
 {% block content %}
     <div class="contentheading">Classifieds - {{ ad.name }} | ${{ ad.price }}</div>
     <p><i>Posted: {{ ad.date }}</i></p>
-    <div class="ad-image-container">
-        <img class="ad-image" src="{{ MEDIA_URL }}{{ ad.image }}">
-    </div>
     <div class="ad-details">
-        <p><strong>Asking Price</strong>: ${{ ad.price }}</p>
+        <p><strong>Asking Price</strong>: ${{ ad.price }} USD</p>
         <p><strong>Name: </strong>{{ ad.name }}</p>
         <div id="ad-detail-desc-box">
             <div id="ad-detail-desc">
                 <h4>Description:</h4>
-                <p>{{ ad.description }}</p>
+                <p class="ad-description-well">{{ ad.description }}</p>
             </div>
         </div>
-    </div>
+</div>
+    <h4>Images:</h4>
+    {% with ad.adimage_set.all as images %}
+        {% for img in images %}
+	    <div class="ad-image-container">
+		<img class="ad-image" src="{{ MEDIA_URL }}{{ img.thumbnail }}">
+           </div>
+	{% endfor %}
+    {% endwith %}
     <a href="{% url 'classifieds:index' %}">Back</a>
 {% endblock %}

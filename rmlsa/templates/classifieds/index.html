@@ -9,19 +9,28 @@
     <div id="ad-list">
     {% if ads %}
         {% for ad in ads %}
-            <div class="ad-box">
-                <a href="{% url 'classifieds:details' ad.id %}">
-                    <img class="ad-thumb" src="{{ MEDIA_URL }}{{ ad.thumbnail }}">
-                </a>
+	<div class="ad-box">
 
                 <div class="ad-box-desc">
-                    {{ ad.name }} -- ${{ ad.price }} -- <i>"{{ ad.description|truncatechars:30 }}"  -- </i>
-                    <a href="{% url 'classifieds:details' ad.id %}">Details</a>
+			<a href="{% url 'classifieds:details' ad.id %}">
+				{{ ad.name }}
+			</a>-- ${{ ad.price }}<br>
+		        <i>"{{ ad.description|truncatechars:30 }}"</i>	
                 </div>
 
-                <p><i>Posted on {{ ad.date }}</i></p>
+		{% with ad.adimage_set.all as images %}
+		    {% if images %}
+		        <a href="{% url 'classifieds:details' ad.id %}">
+		            <img class="ad-thumb" src="{{ MEDIA_URL }}{{ images.0.thumbnail }}">
+			</a>
+		    {% endif %}
+		{% endwith %}
 
-            </div>
+		<p><i>Posted on {{ ad.date }}</i></p>
+
+	</div>
+	<hr>
+	-------------------------------
         {% endfor %}
     {% else %}
         <p>No ads at this time. <a href="{% url 'home:contact' %}">Contact an admin</a></p>

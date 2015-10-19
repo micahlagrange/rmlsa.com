@@ -14,7 +14,7 @@ import socket
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-if socket.gethostname() == 'micah-PC':
+if socket.gethostname() == 'Micahs-MacBook-Pro.local':
     from rmlsa.settings_dev import *
 elif socket.gethostname() == 'ip-172-31-47-20':
     from rmlsa.settings_prod import *
@@ -100,7 +100,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Denver'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

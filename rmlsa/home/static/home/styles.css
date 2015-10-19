@@ -20,3 +20,22 @@ h1 {
 .sents:first-letter { text-transform: uppercase; }
 .no_bullet { list-style-type: none; }
 .article_img { width: 100%; }
+.ad-description-well {
+    background-color: darkgrey;
+    color: black;
+}
+
+.ad-image-container {
+    margin-bottom: 1em;
+}
+
+img.ad-image {
+    max-width: 600px;
+    max-height: 600px;
+}
+
+img.ad-thumb {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 1em;
+}

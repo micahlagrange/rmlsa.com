@@ -1,9 +1,16 @@
 from django.contrib import admin
 
-from classifieds.models import Ad
+from classifieds.models import Ad, AdImage
 
 # Register your models here.
+class AdImageInline(admin.TabularInline):
+    model = AdImage
+    fields = ('image',)
+
 class AdminClassifiedAd(admin.ModelAdmin):
-    fields = ('name', 'image', 'description', 'date', 'price')
+#    model = Ad
+    fields = ('name', 'description', 'date', 'price')
+    inlines = (AdImageInline,)
 
 admin.site.register(Ad, AdminClassifiedAd)
+
