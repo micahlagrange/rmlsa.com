@@ -1,14 +1,15 @@
 {% extends 'home/base.html' %}
+{% load humanize %}
 
 {% block title %}Ad {{ ad.id }} Details{% endblock %}
 
 {% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
 
 {% block content %}
-    <div class="contentheading">Classifieds - {{ ad.name }} | ${{ ad.price }}</div>
+    <div class="contentheading">Classifieds - {{ ad.name }} | ${{ ad.price|intcomma }}</div>
     <p><i>Posted: {{ ad.date }}</i></p>  
     <div class="ad-details">
-        <p><strong>Asking Price</strong>: ${{ ad.price }} USD</p>
+        <p><strong>Asking Price</strong>: ${{ ad.price|intcomma }} USD</p>
         <p><strong>Name: </strong>{{ ad.name }}</p>
         <h4>Description:</h4>
 	<div id="ad-detail-desc-box">

@@ -5,7 +5,7 @@ from django.utils import timezone
 
 # Create your models here.
 class Ad(models.Model):
-    price = models.IntegerField(null=True, default=0)
+    price = models.DecimalField(null=True, default=0, max_digits=7, decimal_places=2)
     name = models.CharField(max_length=50, null=True, blank=False)
     description = models.TextField(null=True, blank=False)
     date = models.DateTimeField(verbose_name='Date created', null=False, blank=False, default=timezone.now)
