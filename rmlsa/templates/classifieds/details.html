@@ -6,14 +6,17 @@
 
 {% block content %}
     <div class="contentheading">Classifieds - {{ ad.name }} | ${{ ad.price }}</div>
-    <p><i>Posted: {{ ad.date }}</i></p>
+    <p><i>Posted: {{ ad.date }}</i></p>  
     <div class="ad-details">
         <p><strong>Asking Price</strong>: ${{ ad.price }} USD</p>
         <p><strong>Name: </strong>{{ ad.name }}</p>
-        <div id="ad-detail-desc-box">
+        <h4>Description:</h4>
+	<div id="ad-detail-desc-box">
             <div id="ad-detail-desc">
-                <h4>Description:</h4>
-                <p class="ad-description-well">{{ ad.description }}</p>
+		<p>
+			{{ ad.description|linebreaks }}
+			<hr>
+		</p>
             </div>
         </div>
 </div>
