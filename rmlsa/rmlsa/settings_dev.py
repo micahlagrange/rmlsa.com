@@ -3,10 +3,11 @@ __author__ = 'micah'
 DEBUG = TEMPLATE_DEBUG = True
 
 DATABASE_DIR = '/usr/local/rmlsa.com/db'
-STATIC_ROOT = '/usr/local/rmlsa.com/static'
+#STATIC_ROOT = '/usr/local/rmlsa.com/static'
 MEDIA_ROOT = '/usr/local/rmlsa.com/media'
 
 # Static files
+STATICFILES_DIRS = ('/usr/local/rmlsa.com/static/',)
 STATIC_URL='/static/'
 MEDIA_URL='/media/'
 

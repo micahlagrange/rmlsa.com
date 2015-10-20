@@ -7,7 +7,7 @@ from django.utils import timezone
 class Ad(models.Model):
     price = models.IntegerField(null=True, default=0)
     name = models.CharField(max_length=50, null=True, blank=False)
-    description = models.CharField(max_length=200, null=True, blank=False)
+    description = models.TextField(null=True, blank=False)
     date = models.DateTimeField(verbose_name='Date created', null=False, blank=False, default=timezone.now)
 
     def __str__(self):
