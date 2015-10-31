@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('classifieds', '0003_auto_20151019_2104'),
+        ('profiles', '0012_auto_20151017_2307'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='ad',
-            name='price',
-            field=models.DecimalField(default=1, max_digits=7, null=True, decimal_places=2),
+            model_name='driver',
+            name='points',
+            field=models.IntegerField(verbose_name='Points', default=None, null=True),
         ),
     ]

@@ -6,7 +6,7 @@ from classes import create_thumbnail
 class Driver(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    points = models.IntegerField(verbose_name='Points', null=False, default=0)
+    points = models.IntegerField(verbose_name='Points', null=True, blank=False, default=None)
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)

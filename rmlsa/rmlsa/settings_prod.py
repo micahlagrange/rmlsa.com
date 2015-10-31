@@ -1,13 +1,30 @@
 __author__ = 'micah'
+import os
 
 DEBUG = TEMPLATE_DEBUG = False
 
-DATABASE_DIR = '/export/home/projects/db'
+
+with open('/etc/rmlsa.com.conf/db_password') as f:
+    PASSWORD = f.read().strip()
+
+# db, media, static dirs
+DATABASES = {
+    'default': {
+      'NAME': 'django_db',
+      'ENGINE': 'mysql.connector.django',
+      'USER': 'root',
+      'PASSWORD': PASSWORD,
+      'OPTIONS': {
+        'autocommit': True,
+      },
+    }
+}
+
 MEDIA_ROOT = '/export/home/projects/media'
 
 # Static files
-STATIC_URL = 'http://rmlsa.com/static/'
-MEDIA_URL = 'http://rmlsa.com/media/'
+STATIC_URL = '//rmlsa.com/static/'
+MEDIA_URL = '//rmlsa.com/media/'
 
 STATIC_ROOT = '/export/home/projects/static'
 
