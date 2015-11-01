@@ -1,9 +1,13 @@
-#!/bin/bash
+set -e
 
-TARGET=ubuntu@rmlsa.com
-IDFILE="/Users/lg_micaht/.ssh/rmlsa-site.pem"
-REMOTEDIR="/export/home/projects/static/"
-STATICROOT=""
+# Variables
 
-# ssh -i "$IDFILE" "$TARGET" 'sudo chmod -R 777 /export/home/projects/static'
-rsync -az -e "ssh -i $IDFILE" --no-o --no-p  "$TARGET":"$REMOTEDIR"
+TARGET_SRV=ubuntu@rmlsa.com
+TARGET_DIR=/export/home/projects/static
+PRV_KEY=/usr/local/rmlsa.com/working_dir/rmlsa-site.pem
+STATIC_DIR=/usr/local/rmlsa.com/static/
+
+ssh -ti $PRV_KEY $TARGET_SRV "sudo chown -R ubuntu:ubuntu $TARGET_DIR"
+rsync -avz -e "ssh -i $PRV_KEY" $STATIC_DIR $TARGET_SRV:$TARGET_DIR
+ssh -ti $PRV_KEY $TARGET_SRV "sudo chown -R www-data:www-data $TARGET_DIR" 
+

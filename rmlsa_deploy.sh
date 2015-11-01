@@ -1,21 +1,27 @@
 #!/bin/bash
 
+set -e
+
+PROJECT_HOME="/Users/lg_micaht/rmlsa.com/"
 TARGET=ubuntu@rmlsa.com
-IDFILE="/Users/lg_micaht/.ssh/rmlsa-site.pem"
-DEPLOYFROM="/tmp/deploy_from"
-REMOTEDIR="/home/ubuntu/django_deploy"
+DEPLOY_FROM="/usr/local/rmlsa.com/working_dir/deploy_from"
 
-echo Copying without static/media...
-mkdir "$DEPLOYFROM"
-rsync -az rmlsa "$DEPLOYFROM"
+cd $PROJECT_HOME
+   
+echo Copying...
+rsync -rv rmlsa $DEPLOY_FROM
 
-cd "$DEPLOYFROM"
+cd $DEPLOY_FROM
+
+echo Removing old archive...
+if [ -e rmlsa.zip ]; then
+    rm rmlsa.zip
+fi
 
 echo Zipping up archive...
-tar cvzf rmlsa.tar.gz rmlsa
+zip -r rmlsa.zip rmlsa
 
 echo Sending archive to production server $TARGET
-scp -i "$IDFILE" rmlsa.tar.gz $TARGET:"$REMOTEDIR"
+scp -i ../rmlsa-site.pem rmlsa.zip $TARGET:/home/ubuntu/django_deploy
 
 echo Done sending archive
-rm -r "$DEPLOYFROM"
