@@ -1,9 +1,20 @@
 __author__ = 'micah'
+import os
 
 DEBUG = TEMPLATE_DEBUG = True
 
 # Jenkins should just use the project folder
 DATABASE_DIR = '../..'
+# Database
+# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DATABASE_DIR, 'rmlsa_db.sqlite3'),
+    },
+}
+
 STATIC_ROOT = '../../home/static'
 MEDIA_ROOT = '../../media'
 
