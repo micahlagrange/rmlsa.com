@@ -107,7 +107,7 @@ def get_all_news_articles():
 def base_tc(tab=None):
     """
     The base template always needs this context
-    :return: base context for base template after adding any additional kwargs
+    :return: base context for base template
     """
 
     if tab:
@@ -140,11 +140,19 @@ def email_success(request):
 
 
 def rules(request):
-    return render(request, 'home/rules.html', base_tc('info'))
+    rules_obj = RulesFile.objects.last()
+    return render(request, 'home/rules.html', {'info': 'active', 
+                                              'random_image': get_random_image(), 
+                                              'partners': get_partner_links(), 
+                                              'rules': rules_obj})
 
 
 def membership_application(request):
-    return render(request, 'home/membership.html', base_tc('membership_form'))
+    membership_form = MembershipApplication.objects.last()
+    return render(request, 'home/membership.html', {'info': 'membership_form', 
+                                              'random_image': get_random_image(), 
+                                              'partners': get_partner_links(), 
+                                              'membership_form': membership_form})
 
 
 def web_links(request):
