@@ -11,6 +11,6 @@
     <div style="padding-left:40px;">
         <p>Please download the membership application form here.</p>
         <a title="Membership Form" target="_blank"
-           href="{% static 'home/pdf/2015_rmlsa_registration_form.pdf' %}"><h1>Membership Application</h1></a>
+          href="{{ MEDIA_URL }}{{ membership_form.application_file }}"><h1>{{ membership_form.name }}</h1></a>
     </div>
 {% endblock %}

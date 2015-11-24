@@ -34,3 +34,17 @@ class WebLink(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
+
+class MembershipApplication(models.Model):
+    name = models.CharField(max_length=200)
+    application_file = models.FileField(upload_to='forms', null=True, blank=False)
+
+    def __str__(self):
+        return '{}'.format(self.name)
+
+class RulesFile(models.Model):
+    name = models.CharField(max_length=200)
+    rules_file = models.FileField(upload_to='forms', null=True, blank=False)
+   
+    def __str__(self):
+        return '{}'.format(self.name)
