@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from classifieds.models import Ad
@@ -18,6 +18,6 @@ def index(request):
 
 
 def details(request, pk):
-    ad = Ad.objects.get(pk=pk)
+    ad = get_object_or_404(Ad, pk=pk)
     return render(request, 'classifieds/details.html', {'ad': ad, 'partners': get_partner_links(),
                                                         'random_image': get_random_image()})
