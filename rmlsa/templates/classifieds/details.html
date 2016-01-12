@@ -25,7 +25,9 @@
     {% with ad.adimage_set.all as images %}
         {% for img in images %}
 	    <div class="ad-image-container">
-		<img class="ad-image" src="{{ MEDIA_URL }}{{ img.thumbnail }}">
+        <a target="_blank" href="{{ MEDIA_URL }}{{ img.image }}">
+          <img class="ad-image" src="{{ MEDIA_URL }}{{ img.thumbnail }}">
+       </a>
            </div>
 	{% endfor %}
     {% endwith %}
