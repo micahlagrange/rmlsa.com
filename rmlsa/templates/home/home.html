@@ -76,10 +76,8 @@
                 {% for a in news_articles %}
                 <div class="moduletable" id="news_article">
                     <p style="float: right;"><i>Published on {{ a.pub_date }}</i></p>
-                    <h1>
-                        <span style="color: #ffd700">
-                        {{ a.title }}
-                        </span>
+                    <h1 class="article-title">
+                      {{ a.title }}
                     </h1>
                     {% if a.subtitle %}<h4>{{ a.subtitle }}</h4>{% endif %}
 

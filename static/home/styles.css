@@ -93,6 +93,12 @@ h1#small {
     height: auto;
 }
 
+.article-title {
+    color: yellow;
+    size: 150%;
+    line-height: 120%;
+}
+
 #article_img {
     max-width:300px;
     max-height:500px;
