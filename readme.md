@@ -1,2 +1,1 @@
-look in /usr/local/rmlsa.com!
-
+Code repo for http://rmlsa.com.
