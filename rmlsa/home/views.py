@@ -134,11 +134,11 @@ def getting_started(request):
 
 
 def rules(request):
-    rules_obj = RulesFile.objects
+    rules_obj = RulesFile.objects.all()
     return render(request, 'home/rules.html', {'info': 'active',
                                               'random_image': get_random_image(),
                                               'partners': get_partner_links(),
-                                              'rules': rules_obj})
+                                              'rules': reversed(list(rules_obj))})
 
 
 def membership_application(request):
