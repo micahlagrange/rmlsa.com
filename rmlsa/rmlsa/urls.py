@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import patterns, include
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import login as django_login, logout as django_logout
@@ -26,7 +26,7 @@ urlpatterns = patterns(
     distill_url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),
 
     # Apps
-    distill_url(r'', include(home.urls, namespace='home')),
+    url(r'', include(home.urls, namespace='home')),
     distill_url(r'^gallery/', include(gallery.urls, namespace='gallery')),
     distill_url(r'^profiles/', include(profiles.urls, namespace='profiles')),
     distill_url(r'^profiles', profiles.views.driver_profile, name='p_anchor'),
