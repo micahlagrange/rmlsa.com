@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import login as django_login, logout as django_logout
@@ -18,20 +18,21 @@ import profiles.urls
 import search.urls
 import classifieds.urls
 
+from django_distill import distill_url
 
 urlpatterns = patterns(
     '',  # Root redirect:
-    url(r'^$', home.views.home, name='home'),
-    url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),
+    distill_url(r'^$', home.views.home, name='home'),
+    distill_url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),
 
     # Apps
-    url(r'', include(home.urls, namespace='home')),
-    url(r'^gallery/', include(gallery.urls, namespace='gallery')),
-    url(r'^profiles/', include(profiles.urls, namespace='profiles')),
-    url(r'^profiles', profiles.views.driver_profile, name='p_anchor'),
-    url(r'^events/', include(events.urls, namespace='events')),
-    url(r'^search/', include(search.urls, namespace='search')),
-    url(r'^classifieds/', include(classifieds.urls, namespace='classifieds')),
+    distill_url(r'', include(home.urls, namespace='home')),
+    distill_url(r'^gallery/', include(gallery.urls, namespace='gallery')),
+    distill_url(r'^profiles/', include(profiles.urls, namespace='profiles')),
+    distill_url(r'^profiles', profiles.views.driver_profile, name='p_anchor'),
+    distill_url(r'^events/', include(events.urls, namespace='events')),
+    distill_url(r'^search/', include(search.urls, namespace='search')),
+    distill_url(r'^classifieds/', include(classifieds.urls, namespace='classifieds')),
 
     # Admin/login required:
     url(r'^accounts/login/$', django_login, name='login'),

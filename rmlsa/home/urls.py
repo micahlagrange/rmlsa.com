@@ -1,8 +1,9 @@
 from django.conf.urls import patterns, include
-from django_distill import distill_url
 
 import home.views
 from profiles.views import driver_profile
+
+from django_distill import distill_url
 
 urlpatterns = patterns(
     '',
