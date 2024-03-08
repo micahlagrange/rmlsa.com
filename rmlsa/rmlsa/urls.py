@@ -27,12 +27,12 @@ urlpatterns = patterns(
 
     # Apps
     url(r'', include(home.urls, namespace='home')),
-    distill_url(r'^gallery/', include(gallery.urls, namespace='gallery')),
-    distill_url(r'^profiles/', include(profiles.urls, namespace='profiles')),
+    url(r'^gallery/', include(gallery.urls, namespace='gallery')),
+    url(r'^profiles/', include(profiles.urls, namespace='profiles')),
     distill_url(r'^profiles', profiles.views.driver_profile, name='p_anchor'),
-    distill_url(r'^events/', include(events.urls, namespace='events')),
-    distill_url(r'^search/', include(search.urls, namespace='search')),
-    distill_url(r'^classifieds/', include(classifieds.urls, namespace='classifieds')),
+    url(r'^events/', include(events.urls, namespace='events')),
+    url(r'^search/', include(search.urls, namespace='search')),
+    url(r'^classifieds/', include(classifieds.urls, namespace='classifieds')),
 
     # Admin/login required:
     url(r'^accounts/login/$', django_login, name='login'),
