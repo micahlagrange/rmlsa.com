@@ -4,7 +4,6 @@ __author__ = 'MicahT'
 
 import forms
 from rmlsa import settings
-# from django.core.mail import send_mail
 
 from datetime import datetime, timedelta
 
@@ -132,26 +131,21 @@ def getting_started(request):
                                                          'partners': get_partner_links()})
 
 
-# def email_success(request):
-#     custom_success = ['Email sent successfully.']
-#     return render(request, 'home/email_success.html', {'contact': 'active', 'random_image': get_random_image(),
-#                                                        'partners': get_partner_links(),
-#                                                        'custom_success': custom_success})
 
 
 def rules(request):
-    rules_obj = RulesFile.objects.last()
-    return render(request, 'home/rules.html', {'info': 'active', 
-                                              'random_image': get_random_image(), 
-                                              'partners': get_partner_links(), 
+    rules_obj = RulesFile.objects
+    return render(request, 'home/rules.html', {'info': 'active',
+                                              'random_image': get_random_image(),
+                                              'partners': get_partner_links(),
                                               'rules': rules_obj})
 
 
 def membership_application(request):
     membership_form = MembershipApplication.objects.last()
-    return render(request, 'home/membership.html', {'info': 'membership_form', 
-                                              'random_image': get_random_image(), 
-                                              'partners': get_partner_links(), 
+    return render(request, 'home/membership.html', {'info': 'membership_form',
+                                              'random_image': get_random_image(),
+                                              'partners': get_partner_links(),
                                               'membership_form': membership_form})
 
 
@@ -190,43 +184,10 @@ def delete_partner(request, pk):
 
 
 def server_error_custom(request):
-    # send_custom_email()
     return render(request, 'errors/500.html', {'error', 'There has been a server error. '
                                                         'The admins have been notified.'})
 
 
-# def contact(request):
-#     if request.method == 'POST':
-#         form = forms.ContactForm(request.POST)
-
-#         if form.is_valid():
-#             from_email = form.cleaned_data['from_email']
-#             subject = 'rmlsa.com Contact Form: {}'.format(form.cleaned_data['subject'])
-#             message = 'Message sent from {} using the contact form:\n\n{}'.format(from_email,
-#                                                                                   form.cleaned_data['message'])
-#             send_custom_email(message=message, recipients=settings.CONTACTS, subj=subject)
-#             return HttpResponseRedirect(reverse('home:email_success'))
-
-#     else:
-#         form = forms.ContactForm()
-
-#     return render(request, 'home/contact.html', {'form': form,
-#                                                  'contact': 'active',
-#                                                  'random_image': get_random_image(),
-#                                                  'partners': get_partner_links()})
-
-
-# def send_custom_email(
-#         message='django server message.',
-#         recipients=settings.ADMINS,
-#         subj='rmlsa.django.email',
-# ):
-#     send_mail(
-#         subject=subj,
-#         message=message,
-#         from_email='rmlsa.site@gmail.com',
-#         recipient_list=[x[1] for x in recipients],
-#     )
 
 
 def get_500_error():
