@@ -29,8 +29,3 @@ class DeleteModel(forms.Form):
 class SearchForm(forms.Form):
     query_string = forms.Textarea
 
-
-class ContactForm(forms.Form):
-    from_email = forms.EmailField()
-    subject = forms.CharField(max_length=200)
-    message = forms.CharField(widget=forms.Textarea)

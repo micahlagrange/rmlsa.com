@@ -61,7 +61,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # 'robots',
     'home',
     'gallery',
     'events',
@@ -96,14 +95,3 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-with open('/etc/rmlsa.com.conf/adminaddress') as af:
-	with open('/etc/rmlsa.com.conf/contactaddress') as cf:
-	    ADMINS = (('Micah', af.read().strip()),)
-	    CONTACTS = (('Steve', cf.read().strip()), ('Micah', af.read().strip()))
-
-EMAIL_HOST = 'smtp.gmail.com'
-with open('/etc/rmlsa.com.conf/emailpassword') as f:
-    EMAIL_HOST_PASSWORD = f.read().strip()
-EMAIL_HOST_USER = 'rmlsa.site@gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587

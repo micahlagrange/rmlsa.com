@@ -174,10 +174,8 @@
                                             <span class="topdaddy"><a href="{% url 'home:membership_form' %}">Membership Application</a><span class="selector"></span></span>
                                         </li>
 
-                                        {% if contact == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                        <span class="top"><a href="{% url 'home:contact' %}">Contact Us</a><span class="selector"></span></span></li>
 
-                                        {% if user.is_authenticated %}
+                                        <!--{% if user.is_authenticated %}
                                             {% if contributor_menu == 'active' %}<li class="active">{% else %}<li>{% endif %}
                                             <span class="topdaddy"><a class="topdaddy">Menu</a><span class="selector"></span></span>
                                                 <ul>
@@ -187,7 +185,7 @@
                                             </li>
                                         {% else %}
                                             <li><span class="topdaddy"><a href="{% url 'login' %}">Login</a><span class="selector"></span></span></li>
-                                        {% endif %}
+                                        {% endif %}-->
                                     </ul>
                                 </div>
                             </div>
@@ -438,7 +436,6 @@
 						</div>
 						<div id="footer-bar">
 							<div align="center">
-                                <a href="{% url 'home:contact' %}" title="Micah Turner" class="nounder">
                                     <span id="rocket">website by...<br> Micah Turner</span>
                                 </a>
                             </div>
