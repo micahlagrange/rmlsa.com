@@ -67,7 +67,9 @@ INSTALLED_APPS = (
     'profiles',
     'news',
     'classifieds',
+    'django_distill'
 )
+
 if socket.gethostname() == 'ip-172-31-47-20':
     INSTALLED_APPS += ('mod_wsgi.server',)
 
