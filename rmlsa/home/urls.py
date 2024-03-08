@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include
-from distill_url
+from django_distill import distill_url
 
 import home.views
 from profiles.views import driver_profile
