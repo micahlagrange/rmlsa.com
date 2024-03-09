@@ -21,8 +21,8 @@ urlpatterns = [
     path('gallery/', include('gallery.urls', namespace='gallery')),
     path('profiles/', include('profiles.urls', namespace='profiles')),
     distill_path('profiles_anchor/', profiles.views.driver_profile, name='p_anchor'),
-    path('search', include('search.urls', namespace='search')),
-    path('classifieds', include('classifieds.urls', namespace='classifieds')),
+    path('search/', include('search.urls', namespace='search')),
+    path('classifieds/', include('classifieds.urls', namespace='classifieds')),
 
     # Admin/login required:
     path('accounts/login/', LoginView.as_view(), name='login'),
