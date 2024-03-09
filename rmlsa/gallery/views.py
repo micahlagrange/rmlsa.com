@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 import forms
 
 # Create your views here.
@@ -20,14 +20,16 @@ def upload_image(request):
                 filename = form.cleaned_data['name']
                 return HttpResponseRedirect(reverse('gallery:upload_success', kwargs={'filename': filename}))
         else:
-            custom_errors.append('You do not have permission to upload images. Please contact the site administrator')
+            custom_errors.append(
+                'You do not have permission to upload images. Please contact the site administrator')
             return render(request, 'gallery/upload_image_form.html', {'custom_errors': custom_errors})
     else:
         if request.user.has_perm('gallery.upload_image'):
             form = forms.GalleryImageUploader()
         else:
             form = None
-            custom_errors.append('You do not have permission to upload images. Please contact the site administrator')
+            custom_errors.append(
+                'You do not have permission to upload images. Please contact the site administrator')
 
     return render(request, 'gallery/upload_image_form.html', {'form': form, 'custom_errors': custom_errors})
 
@@ -57,7 +59,8 @@ def delete_image(request, pk):
             else:
                 raise ValueError(form)
         else:
-            custom_errors.append('You do not have permission to edit this object.')
+            custom_errors.append(
+                'You do not have permission to edit this object.')
             return render(request, 'gallery/delete_confirmation.html', {'custom_errors': custom_errors})
     else:
         form = forms.DeleteModel(initial={'is_submitted': '1'})

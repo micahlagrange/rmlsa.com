@@ -8,7 +8,7 @@ from rmlsa import settings
 from datetime import datetime, timedelta
 
 from django.shortcuts import render, HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.auth.views import logout as django_logout
 from django.contrib.auth.decorators import login_required, permission_required
 
@@ -63,8 +63,8 @@ def home(request):
     datetimestamp = datetime.now()
 
     # Get up to 5 past non-practice events
-    past_events = Event.objects.reverse().filter(date__lt=datetimestamp).exclude(event_type__name__contains='practice')[0:5]
-
+    past_events = Event.objects.reverse().filter(date__lt=datetimestamp).exclude(
+        event_type__name__contains='practice')[0:5]
 
     # Get up to 5 future non-practice events
     upcoming_events = Event.objects.filter(date__gte=datetimestamp)[0:5]
@@ -131,22 +131,20 @@ def getting_started(request):
                                                          'partners': get_partner_links()})
 
 
-
-
 def rules(request):
     rules_obj = RulesFile.objects.all()
     return render(request, 'home/rules.html', {'info': 'active',
-                                              'random_image': get_random_image(),
-                                              'partners': get_partner_links(),
-                                              'rules': reversed(list(rules_obj))})
+                                               'random_image': get_random_image(),
+                                               'partners': get_partner_links(),
+                                               'rules': reversed(list(rules_obj))})
 
 
 def membership_application(request):
     membership_form = MembershipApplication.objects.last()
     return render(request, 'home/membership.html', {'info': 'membership_form',
-                                              'random_image': get_random_image(),
-                                              'partners': get_partner_links(),
-                                              'membership_form': membership_form})
+                                                    'random_image': get_random_image(),
+                                                    'partners': get_partner_links(),
+                                                    'membership_form': membership_form})
 
 
 def web_links(request):
@@ -188,9 +186,5 @@ def server_error_custom(request):
                                                         'The admins have been notified.'})
 
 
-
-
 def get_500_error():
     raise ValueError('Here is your error, sir.')
-
-
