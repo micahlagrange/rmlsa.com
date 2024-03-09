@@ -79,7 +79,7 @@ if socket.gethostname() == 'ip-172-31-47-20':
     INSTALLED_APPS += ('mod_wsgi.server',)
 
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
