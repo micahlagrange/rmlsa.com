@@ -1,4 +1,4 @@
 pillow
-django==1.8.1
+django==3.2.24
 django-distill
 django-distill[amazon]
