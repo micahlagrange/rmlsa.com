@@ -14,7 +14,6 @@ import profiles.urls
 from django_distill import distill_path
 
 urlpatterns = [
-    '',  # Root redirect:
     distill_path('', home.views.home, name='home'),
     distill_path('', TemplateView.as_view(
         template_name='homepage.html'), name="home"),

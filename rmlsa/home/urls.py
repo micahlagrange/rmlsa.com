@@ -5,7 +5,6 @@ from django_distill import distill_path
 
 app_name = 'home'
 urlpatterns = [
-    '',
     # Main page urls
     distill_path('', home.views.home, name='home'),
     # url(r'^race_results$', home.views.race_results, name='race_results'),
