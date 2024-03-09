@@ -125,5 +125,4 @@ DISTILL_PUBLISH = {
         'SECRET_ACCESS_KEY': secret_key
     },
 }
-DISTILL_SKIP_ADMIN_DIRS = False
-
+DISTILL_SKIP_ADMIN_DIRS = True

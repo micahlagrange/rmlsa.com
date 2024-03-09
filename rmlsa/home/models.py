@@ -1,3 +1,5 @@
+import os
+from django.core.files.storage import FileSystemStorage
 from django.db import models
 
 
@@ -53,9 +55,24 @@ class MembershipApplication(models.Model):
         return '{}'.format(self.name)
 
 
+class NoRandomStrings(FileSystemStorage):
+
+    def get_available_name(self, name, max_length=None):
+        if self.exists(name):
+            dir_name, file_name = os.path.split(name)
+            file_root, file_ext = os.path.splitext(file_name)
+
+            my_chars = ''  # Nothing...
+
+            name = os.path.join(dir_name, '{}_{}{}'.format(
+                file_root, my_chars, file_ext))
+        return name
+
+
 class RulesFile(models.Model):
     name = models.CharField(max_length=200)
-    rules_file = models.FileField(upload_to='forms', null=True, blank=False)
+    rules_file = models.FileField(
+        storage=NoRandomStrings(), upload_to='forms', null=True, blank=False)
 
     def __str__(self):
         return '{}'.format(self.name)
