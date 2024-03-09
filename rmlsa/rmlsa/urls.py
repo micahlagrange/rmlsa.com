@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.urls import include, path
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.contrib.auth.views import login as django_login, logout as django_logout
+from django.contrib.auth.views import LoginView
 from django.views.generic import TemplateView
 from django.shortcuts import render
 
@@ -36,7 +36,7 @@ urlpatterns = [
     path('classifieds/', include(classifieds.urls, namespace='classifieds')),
 
     # Admin/login required:
-    path('accounts/login/', django_login, name='login'),
+    path('accounts/login/', LoginView.as_view(), name='login'),
     path('accounts/logout/', home.views.logout, name='logout'),
     path('admin/', include(admin.site.urls)),
 ]
