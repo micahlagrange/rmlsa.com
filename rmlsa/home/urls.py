@@ -3,6 +3,7 @@ from profiles.views import driver_profile
 
 from django_distill import distill_path
 
+app_name = 'home'
 urlpatterns = [
     '',
     # Main page urls

@@ -2,6 +2,7 @@ from django.urls import path
 
 import search.views
 
+app_name = 'search'
 urlpatterns = [
     '',
     # Search urls

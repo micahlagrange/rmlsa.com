@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import include, path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -23,14 +24,13 @@ urlpatterns = [
     path('gallery/', include('gallery.urls', namespace='gallery')),
     path('profiles/', include('profiles.urls', namespace='profiles')),
     distill_path('profiles', profiles.views.driver_profile, name='p_anchor'),
-    path('events/', include('events.urls', namespace='events')),
     path('search/', include('search.urls', namespace='search')),
     path('classifieds/', include('classifieds.urls', namespace='classifieds')),
 
     # Admin/login required:
     path('accounts/login/', LoginView.as_view(), name='login'),
     path('accounts/logout/', home.views.logout, name='logout'),
-    path('admin/', include('admin.site.urls')),
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:

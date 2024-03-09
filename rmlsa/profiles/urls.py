@@ -6,6 +6,7 @@ import profiles.views
 
 from django_distill import distill_path
 
+app_name = 'profiles'
 urlpatterns = [
     '',
     # Profile urls

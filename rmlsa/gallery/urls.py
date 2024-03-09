@@ -4,6 +4,7 @@ from . import views
 
 # TODO: use distill here
 
+app_name = 'gallery'
 urlpatterns = [
     '',
     path('', views.gallery_pictures, name='index'),

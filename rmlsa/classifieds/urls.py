@@ -6,6 +6,7 @@ import classifieds.views
 
 from django_distill import distill_path
 
+app_name = 'classifieds'
 urlpatterns = [
     '',
     distill_path('', classifieds.views.index, name='index'),
