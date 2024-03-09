@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from pathlib import Path
 import os
 import socket
 
@@ -99,7 +98,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-DISTILL_DIR = Path.home() + '/distill_dev/'
+DISTILL_DIR = os.path.expanduser("~") + '/distill_dev/'
 DISTILL_PUBLISH = {
     'default': {
         'ENGINE': 'django_distill.backends.amazon_s3',
