@@ -15,8 +15,6 @@ from django_distill import distill_path
 
 urlpatterns = [
     distill_path('', home.views.home, name='home'),
-    distill_path('', TemplateView.as_view(
-        template_name='homepage.html'), name="home"),
 
     # Apps
     path('', include('home.urls', namespace='home')),
