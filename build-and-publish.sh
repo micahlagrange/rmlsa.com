@@ -2,10 +2,11 @@
 #
 set -e
 
+cd rmlsa
 
 # Build static site to /opt
-./distill-build.sh
+../scripts/distill-build.sh
 
 # Sync with s3
-./distill-publish.sh
+../scripts/distill-publish.sh
 
