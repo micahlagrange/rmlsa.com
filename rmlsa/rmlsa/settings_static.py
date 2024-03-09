@@ -24,8 +24,8 @@ DATABASES = {
 MEDIA_ROOT = '/data/media'
 
 # Static files
-STATIC_URL = '//rmlsa.com/static/'
-MEDIA_URL = '//rmlsa.com/media/'
+STATIC_URL = 'http://distill-staging.s3-website-us-east-1.amazonaws.com/static/'
+MEDIA_URL = 'http://distill-staging.s3-website-us-east-1.amazonaws.com/media/'
 
 STATIC_ROOT = '/opt/rmlsa/static'
 
