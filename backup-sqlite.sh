@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables
-DB_PATH="/data/sqlite/django.db"
-BACKUP_PATH="/data/backups/"
+DB_PATH="/opt/rmlsa/sqlite/django.db"
+BACKUP_PATH="/opt/rmlsa/backups/"
 S3_BUCKET="s3://rmlsa-django-backups"
 DAYS_TO_KEEP=1460
 
@@ -20,15 +20,15 @@ TIMESTAMP=$(/usr/bin/date +%Y%m%d%H%M%S)
 
 # Delete S3 backups older than 90 days
 /usr/bin/aws s3 ls $S3_BUCKET | while read -r line;
-  do
+do
     createDate=`echo $line|/usr/bin/awk {'print $1" "$2'}`
     createDate=`/usr/bin/date -d"$createDate" +%s`
     olderThan=`/usr/bin/date -d"-$DAYS_TO_KEEP days" +%s`
     if [[ $createDate -lt $olderThan ]]
-      then 
+    then
         fileName=`echo $line|/usr/bin/awk {'print $4'}`
         if [[ $fileName != "" ]]
-          then 
+        then
             /usr/bin/aws s3 rm $S3_BUCKET/$fileName
         fi
     fi

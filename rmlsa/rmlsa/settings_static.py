@@ -12,7 +12,7 @@ with open('/etc/rmlsa.com.conf/db_password') as f:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/data/sqlite/django.db',
+        'NAME': '/opt/rmlsa/sqlite/django.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -20,7 +20,7 @@ DATABASES = {
     }
 }
 
-MEDIA_ROOT = '/data/media'
+MEDIA_ROOT = '/opt/rmlsa/media'
 
 # Static files
 STATIC_URL = 'http://distill-staging.s3-website-us-east-1.amazonaws.com/static/'
@@ -41,7 +41,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/data/logging/rmlsa.log',
+            'filename': '/opt/rmlsa/logging/rmlsa.log',
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 10,
             'formatter': 'verbose',
