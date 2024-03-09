@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import socket
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 if socket.gethostname() == 'Micahs-MacBook-Pro.local':
     from rmlsa.settings_dev import *
@@ -37,8 +38,8 @@ with open('/etc/rmlsa.com.conf/secretkey') as f:
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': os.path.join(BASE_DIR, 'templates'),
-        'APP_DIRS': True,
+        "DIRS": [BASE_DIR / "templates"],
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 # 'django.template.context_processors.debug',
