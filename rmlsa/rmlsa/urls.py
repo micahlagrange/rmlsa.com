@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import login as django_login, logout as django_logout
@@ -20,10 +20,11 @@ import classifieds.urls
 
 from django_distill import distill_url
 
-urlpatterns = patterns(
+urlpatterns = [
     '',  # Root redirect:
     distill_url(r'^$', home.views.home, name='home'),
-    distill_url(r'^$', TemplateView.as_view(template_name='homepage.html'), name="home"),
+    distill_url(r'^$', TemplateView.as_view(
+        template_name='homepage.html'), name="home"),
 
     # Apps
     url(r'', include(home.urls, namespace='home')),
@@ -38,11 +39,12 @@ urlpatterns = patterns(
     url(r'^accounts/login/$', django_login, name='login'),
     url(r'^accounts/logout/$', home.views.logout, name='logout'),
     url(r'^admin/', include(admin.site.urls)),
-)
+]
 
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
 
 
 # Error overrides

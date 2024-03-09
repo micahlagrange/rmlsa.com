@@ -1,11 +1,11 @@
-from django.conf.urls import patterns, include
+from django.conf.urls import include
 
 import home.views
 from profiles.views import driver_profile
 
 from django_distill import distill_url
 
-urlpatterns = patterns(
+urlpatterns = [
     '',
     # Main page urls
     distill_url(r'^$', home.views.home, name='home'),
@@ -26,3 +26,4 @@ urlpatterns = patterns(
     # Error 500 backdoor
     # url(r'^get/an/error/message/$', home.views.get_500_error)
 )
+]
