@@ -17,7 +17,12 @@ class Article(models.Model):
 
 
 class ArticleImage(models.Model):
-    article = models.ForeignKey(Article, null=True, blank=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=False
+    )
     image = models.ImageField(upload_to='news/images', null=True, blank=False)
     name = models.CharField(max_length=50, null=True, blank=False)
 
@@ -26,7 +31,12 @@ class ArticleImage(models.Model):
 
 
 class ArticleUrl(models.Model):
-    article = models.ForeignKey(Article, null=True, blank=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=False
+    )
     url = models.URLField(null=True, blank=True)
     name = models.CharField(max_length=200, null=True, blank=False)
 
@@ -35,7 +45,12 @@ class ArticleUrl(models.Model):
 
 
 class YoutubeEmbedLink(models.Model):
-    article = models.ForeignKey(Article, null=True, blank=False)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=False
+    )
     link = models.TextField(null=True, blank=False)
 
     def __str__(self):
