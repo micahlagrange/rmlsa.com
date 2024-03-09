@@ -110,7 +110,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-DISTILL_DIR = os.path.expanduser("~") + '/distill_dev/'
+DISTILL_DIR = '/opt/rmlsa/build/'
 DISTILL_PUBLISH = {
     'default': {
         'ENGINE': 'django_distill.backends.amazon_s3',
