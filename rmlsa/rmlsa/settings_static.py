@@ -1,7 +1,7 @@
 __author__ = 'micah'
 import os
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
 
 
 with open('/etc/rmlsa.com.conf/db_password') as f:
