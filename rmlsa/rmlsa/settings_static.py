@@ -11,13 +11,12 @@ with open('/etc/rmlsa.com.conf/db_password') as f:
 # db, media, static dirs
 DATABASES = {
     'default': {
-        'NAME': 'django_db',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': PASSWORD,
-        'OPTIONS': {
-            'autocommit': True,
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/data/sqlite/django.db',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': ''
     }
 }
 
