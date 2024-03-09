@@ -17,8 +17,8 @@ urlpatterns = [
     # Video archive
     re_path(r'^videos/archive/(?P<year>\d+)/$',
             views.video_archive, name='videos'),
-    path('videos/archive/index/', views.video_archive_index,
-         name='video_archive_index'),
+    distill_path('videos/archive/index/', views.video_archive_index,
+                 name='video_archive_index'),
 
     # Picture archive
     re_path(r'^pictures/archive/(?P<year>\d+)/$',
