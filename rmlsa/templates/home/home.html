@@ -83,7 +83,7 @@
 
                 {% with a.articleimage_set.all|first as image %}
                 {% if image %}
-                <img id="article_img" src="{{ MEDIA_URL }}{{ image.image }}" title="{{ image.name }}">
+                <img id="article_img" src="{{ MEDIA_URL }}{{ image.image_url }}" title="{{ image.name }}">
                 {% endif %}
                 {% endwith %}
 
