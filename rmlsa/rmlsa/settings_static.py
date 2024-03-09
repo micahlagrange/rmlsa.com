@@ -11,7 +11,7 @@ with open('/etc/rmlsa.com.conf/db_password') as f:
 DATABASES = {
     'default': {
         'NAME': 'django_db',
-        'ENGINE': 'mysql.connector.django',
+        'ENGINE': 'django.db.backends.mysql',
         'USER': 'root',
         'PASSWORD': PASSWORD,
         'OPTIONS': {
