@@ -1,5 +1,3 @@
-from django.urls import include
-
 import home.views
 from profiles.views import driver_profile
 
