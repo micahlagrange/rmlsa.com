@@ -417,9 +417,10 @@
                                                     {% if random_image.thumbnail %}
                                                     <div class="moduletable-hilite1">
                                                         <h3>From the Gallery</h3>
-                                                        <a class="eg" href="{{ MEDIA_URL }}{{ random_image.image }}">
+                                                        <a class="eg"
+                                                            href="{{ MEDIA_URL }}{{ random_image.image.url }}">
                                                             <img class="eg" id="from_gallery"
-                                                                src="{{ MEDIA_URL }}{{ random_image.thumbnail }}"
+                                                                src="{{ MEDIA_URL }}{{ random_image.thumbnail.url }}"
                                                                 border="0" /></a>
                                                     </div>
                                                     {% endif %}
@@ -448,7 +449,7 @@
                                                                             <a href="{{ p.partner.url }}"
                                                                                 target="_blank">
                                                                                 {% if p.partner.image %}
-                                                                                <img src="{{ MEDIA_URL }}{{ p.partner.image }}"
+                                                                                <img src="{{ MEDIA_URL }}{{ p.partner.image.url }}"
                                                                                     alt="{{ p.filename }}"
                                                                                     style="margin: 5px; float: left"
                                                                                     title="{{ p.partner.name }}"

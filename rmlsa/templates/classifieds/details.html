@@ -6,30 +6,30 @@
 {% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
 
 {% block content %}
-    <div class="contentheading">Classifieds - {{ ad.name }} | ${{ ad.price|intcomma }}</div>
-    <p><i>Posted: {{ ad.date }}</i></p>  
-    <div class="ad-details">
-        <p><strong>Asking Price</strong>: ${{ ad.price|intcomma }} USD</p>
-        <p><strong>Name: </strong>{{ ad.name }}</p>
-        <h4>Description:</h4>
-	<div id="ad-detail-desc-box">
-            <div id="ad-detail-desc">
-		<p>
-			{{ ad.description|linebreaks }}
-			<hr>
-		</p>
-            </div>
+<div class="contentheading">Classifieds - {{ ad.name }} | ${{ ad.price|intcomma }}</div>
+<p><i>Posted: {{ ad.date }}</i></p>
+<div class="ad-details">
+    <p><strong>Asking Price</strong>: ${{ ad.price|intcomma }} USD</p>
+    <p><strong>Name: </strong>{{ ad.name }}</p>
+    <h4>Description:</h4>
+    <div id="ad-detail-desc-box">
+        <div id="ad-detail-desc">
+            <p>
+                {{ ad.description|linebreaks }}
+                <hr>
+            </p>
         </div>
+    </div>
 </div>
-    <h4>Images:</h4>
-    {% with ad.adimage_set.all as images %}
-        {% for img in images %}
-	    <div class="ad-image-container">
-        <a target="_blank" href="{{ MEDIA_URL }}{{ img.image }}">
-          <img class="ad-image" src="{{ MEDIA_URL }}{{ img.thumbnail }}">
-       </a>
-           </div>
-	{% endfor %}
-    {% endwith %}
-    <a href="{% url 'classifieds:index' %}">Back</a>
+<h4>Images:</h4>
+{% with ad.adimage_set.all as images %}
+{% for img in images %}
+<div class="ad-image-container">
+    <a target="_blank" href="{{ MEDIA_URL }}{{ img.image.url }}">
+        <img class="ad-image" src="{{ MEDIA_URL }}{{ img.thumbnail.url }}">
+    </a>
+</div>
+{% endfor %}
+{% endwith %}
+<a href="{% url 'classifieds:index' %}">Back</a>
 {% endblock %}
