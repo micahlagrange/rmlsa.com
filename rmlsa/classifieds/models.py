@@ -23,7 +23,7 @@ class Ad(models.Model):
 
 
 class AdImage(models.Model):
-    ad = models.ForeignKey('Ad')
+    ad = models.ForeignKey('Ad', on_delete=models.CASCADE)
     image = models.ImageField(
         upload_to='classified_images', null=True, blank=False)
     thumbnail = models.ImageField(
