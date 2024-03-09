@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import include, url
+from django.conf.urls import include, path
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import login as django_login, logout as django_logout
@@ -18,27 +18,27 @@ import profiles.urls
 import search.urls
 import classifieds.urls
 
-from django_distill import distill_url
+from django_distill import distill_path
 
 urlpatterns = [
     '',  # Root redirect:
-    distill_url(r'^$', home.views.home, name='home'),
-    distill_url(r'^$', TemplateView.as_view(
+    distill_path('', home.views.home, name='home'),
+    distill_path('', TemplateView.as_view(
         template_name='homepage.html'), name="home"),
 
     # Apps
-    url(r'', include(home.urls, namespace='home')),
-    url(r'^gallery/', include(gallery.urls, namespace='gallery')),
-    url(r'^profiles/', include(profiles.urls, namespace='profiles')),
-    distill_url(r'^profiles', profiles.views.driver_profile, name='p_anchor'),
-    url(r'^events/', include(events.urls, namespace='events')),
-    url(r'^search/', include(search.urls, namespace='search')),
-    url(r'^classifieds/', include(classifieds.urls, namespace='classifieds')),
+    path('', include(home.urls, namespace='home')),
+    path('gallery/', include(gallery.urls, namespace='gallery')),
+    path('profiles/', include(profiles.urls, namespace='profiles')),
+    distill_path('profiles', profiles.views.driver_profile, name='p_anchor'),
+    path('events/', include(events.urls, namespace='events')),
+    path('search/', include(search.urls, namespace='search')),
+    path('classifieds/', include(classifieds.urls, namespace='classifieds')),
 
     # Admin/login required:
-    url(r'^accounts/login/$', django_login, name='login'),
-    url(r'^accounts/logout/$', home.views.logout, name='logout'),
-    url(r'^admin/', include(admin.site.urls)),
+    path('accounts/login/', django_login, name='login'),
+    path('accounts/logout/', home.views.logout, name='logout'),
+    path('admin/', include(admin.site.urls)),
 ]
 
 if settings.DEBUG:
