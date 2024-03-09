@@ -30,6 +30,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='adimage',
             name='ad',
-            field=models.ForeignKey(to='classifieds.Ad'),
+            field=models.ForeignKey(to='classifieds.Ad', on_delete=models.CASCADE),
         ),
     ]

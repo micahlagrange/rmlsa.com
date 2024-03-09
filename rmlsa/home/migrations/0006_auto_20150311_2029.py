@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Drivers',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True,
+                 auto_created=True, serialize=False, verbose_name='ID')),
                 ('first_name', models.CharField(max_length=200)),
                 ('last_name', models.CharField(max_length=200)),
             ],
@@ -25,7 +26,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Profile',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True,
+                 auto_created=True, serialize=False, verbose_name='ID')),
                 ('picture', models.ImageField(upload_to='', default=None, null=True)),
                 ('email', models.EmailField(max_length=200, default=None, null=True)),
             ],
@@ -36,13 +38,15 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='drivers',
             name='profile',
-            field=models.ForeignKey(to='home.Profile'),
+            field=models.ForeignKey(
+                to='home.Profile', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='event',
             name='winner',
-            field=models.ForeignKey(null=True, to='home.Drivers', default=None),
+            field=models.ForeignKey(
+                null=True, to='home.Drivers', default=None, on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]

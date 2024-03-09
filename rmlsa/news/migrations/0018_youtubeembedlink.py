@@ -14,10 +14,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='YoutubeEmbedLink',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False,
+                 primary_key=True, verbose_name='ID', auto_created=True)),
                 ('link', models.TextField(null=True)),
                 ('name', models.CharField(max_length=50, null=True)),
-                ('article', models.ForeignKey(to='news.Article', null=True)),
+                ('article', models.ForeignKey(to='news.Article',
+                 null=True, on_delete=models.CASCADE)),
             ],
             options={
             },

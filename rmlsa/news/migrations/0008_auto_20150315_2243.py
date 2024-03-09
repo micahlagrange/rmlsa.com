@@ -32,25 +32,29 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='articleimage',
             name='article',
-            field=models.ForeignKey(null=True, to='news.Article'),
+            field=models.ForeignKey(
+                null=True, to='news.Article', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='articleimage',
             name='name',
-            field=models.CharField(default='article_image_2015-03-15 22:43:37.809963', max_length=50),
+            field=models.CharField(
+                default='article_image_2015-03-15 22:43:37.809963', max_length=50),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='articleurl',
             name='article',
-            field=models.ForeignKey(null=True, to='news.Article'),
+            field=models.ForeignKey(
+                null=True, to='news.Article', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='articleurl',
             name='name',
-            field=models.CharField(default='Link:', max_length=200, blank=True),
+            field=models.CharField(
+                default='Link:', max_length=200, blank=True),
             preserve_default=True,
         ),
         migrations.AlterField(

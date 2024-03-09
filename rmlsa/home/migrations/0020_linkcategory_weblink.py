@@ -14,9 +14,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='LinkCategory',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False,
+                 primary_key=True, verbose_name='ID', auto_created=True)),
                 ('name', models.CharField(max_length=200)),
-                ('description', models.TextField(default=None, blank=True, null=True)),
+                ('description', models.TextField(
+                    default=None, blank=True, null=True)),
             ],
             options={
             },
@@ -25,10 +27,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='WebLink',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False,
+                 primary_key=True, verbose_name='ID', auto_created=True)),
                 ('name', models.CharField(max_length=200)),
                 ('url', models.URLField()),
-                ('category', models.ForeignKey(to='home.LinkCategory')),
+                ('category', models.ForeignKey(
+                    to='home.LinkCategory', on_delete=models.CASCADE)),
             ],
             options={
             },

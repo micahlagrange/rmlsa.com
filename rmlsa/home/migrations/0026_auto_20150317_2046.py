@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='weblink',
             name='category',
-            field=models.ForeignKey(to='home.LinkCategory', null=True),
+            field=models.ForeignKey(
+                to='home.LinkCategory', null=True, on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]

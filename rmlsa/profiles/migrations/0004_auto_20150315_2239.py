@@ -41,25 +41,29 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='profile',
             name='driver',
-            field=models.ForeignKey(null=True, to='profiles.Driver'),
+            field=models.ForeignKey(
+                null=True, to='profiles.Driver', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='profile',
             name='image',
-            field=models.ImageField(null=True, blank=True, upload_to='user_images/profiles'),
+            field=models.ImageField(
+                null=True, blank=True, upload_to='user_images/profiles'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='profile',
             name='thumbnail',
-            field=models.ImageField(null=True, blank=True, upload_to='user_images/profiles/thumbnails'),
+            field=models.ImageField(
+                null=True, blank=True, upload_to='user_images/profiles/thumbnails'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='sponsor',
             name='drivernew',
-            field=models.ManyToManyField(to='profiles.Driver', null=True, related_name='somerandomfield'),
+            field=models.ManyToManyField(
+                to='profiles.Driver', null=True, related_name='somerandomfield'),
             preserve_default=True,
         ),
         migrations.AddField(
@@ -77,7 +81,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='sponsor',
             name='driver',
-            field=models.ForeignKey(null=True, to='profiles.Driver'),
+            field=models.ForeignKey(
+                null=True, to='profiles.Driver', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AlterField(
@@ -89,7 +94,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='sprintcar',
             name='driver',
-            field=models.ForeignKey(null=True, to='profiles.Driver'),
+            field=models.ForeignKey(
+                null=True, to='profiles.Driver', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AlterField(

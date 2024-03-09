@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CarType',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True,
+                 serialize=False, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
             ],
             options={
@@ -25,7 +26,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='City',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True,
+                 serialize=False, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
             ],
             options={
@@ -35,9 +37,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Event',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True,
+                 serialize=False, auto_created=True, verbose_name='ID')),
                 ('date', models.DateField()),
-                ('car_type', models.ForeignKey(default=None, to='events.CarType', on_delete=django.db.models.deletion.SET_NULL, blank=True, null=True)),
+                ('car_type', models.ForeignKey(default=None, to='events.CarType',
+                 on_delete=django.db.models.deletion.SET_NULL, blank=True, null=True)),
             ],
             options={
             },
@@ -46,7 +50,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='EventType',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True,
+                 serialize=False, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
             ],
             options={
@@ -56,9 +61,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Venue',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True,
+                 serialize=False, auto_created=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=80)),
-                ('city', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, to='events.City', blank=True, null=True)),
+                ('city', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL,
+                 to='events.City', blank=True, null=True)),
             ],
             options={
             },
@@ -67,19 +74,22 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='event',
             name='event_type',
-            field=models.ForeignKey(default=None, to='events.EventType', on_delete=django.db.models.deletion.SET_NULL, blank=True, null=True),
+            field=models.ForeignKey(default=None, to='events.EventType',
+                                    on_delete=django.db.models.deletion.SET_NULL, blank=True, null=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='event',
             name='venue',
-            field=models.ForeignKey(to='events.Venue'),
+            field=models.ForeignKey(
+                to='events.Venue', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='event',
             name='winner',
-            field=models.ForeignKey(default=None, to='profiles.Driver', on_delete=django.db.models.deletion.SET_NULL, blank=True, null=True),
+            field=models.ForeignKey(default=None, to='profiles.Driver',
+                                    on_delete=django.db.models.deletion.SET_NULL, blank=True, null=True),
             preserve_default=True,
         ),
     ]

@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Sponsor',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(serialize=False,
+                 auto_created=True, verbose_name='ID', primary_key=True)),
                 ('name', models.CharField(max_length=200)),
                 ('url', models.URLField()),
             ],
@@ -26,11 +27,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SprintCar',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(serialize=False,
+                 auto_created=True, verbose_name='ID', primary_key=True)),
                 ('number', models.CharField(null=True, max_length=80, default=None)),
                 ('color', models.CharField(max_length=50)),
-                ('driver', models.ForeignKey(to='home.Driver')),
-                ('sponsors', models.ForeignKey(to='home.Sponsor', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True, default=None)),
+                ('driver', models.ForeignKey(
+                    to='home.Driver', on_delete=models.CASCADE)),
+                ('sponsors', models.ForeignKey(to='home.Sponsor', blank=True,
+                 on_delete=django.db.models.deletion.SET_NULL, null=True, default=None)),
             ],
             options={
             },
@@ -45,31 +49,36 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='driver',
             name='profile',
-            field=models.ForeignKey(to='home.Profile', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
+            field=models.ForeignKey(to='home.Profile', blank=True,
+                                    on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='event',
             name='car_type',
-            field=models.ForeignKey(to='home.CarType', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
+            field=models.ForeignKey(to='home.CarType', blank=True,
+                                    on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='event',
             name='event_type',
-            field=models.ForeignKey(to='home.EventType', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
+            field=models.ForeignKey(to='home.EventType', blank=True,
+                                    on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='event',
             name='winner',
-            field=models.ForeignKey(to='home.Driver', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
+            field=models.ForeignKey(
+                to='home.Driver', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True, default=None),
             preserve_default=True,
         ),
         migrations.AlterField(
             model_name='venue',
             name='city',
-            field=models.ForeignKey(to='home.City', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True),
+            field=models.ForeignKey(
+                to='home.City', blank=True, on_delete=django.db.models.deletion.SET_NULL, null=True),
             preserve_default=True,
         ),
         migrations.AlterField(

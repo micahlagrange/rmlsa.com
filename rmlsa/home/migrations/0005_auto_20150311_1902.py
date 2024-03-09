@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CarType',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('id', models.AutoField(primary_key=True,
+                 verbose_name='ID', serialize=False, auto_created=True)),
                 ('name', models.CharField(max_length=50)),
             ],
             options={
@@ -24,7 +25,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='City',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('id', models.AutoField(primary_key=True,
+                 verbose_name='ID', serialize=False, auto_created=True)),
                 ('name', models.CharField(max_length=300)),
             ],
             options={
@@ -34,9 +36,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Event',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('id', models.AutoField(primary_key=True,
+                 verbose_name='ID', serialize=False, auto_created=True)),
                 ('date', models.DateField()),
-                ('car_type', models.ForeignKey(to='home.CarType')),
+                ('car_type', models.ForeignKey(
+                    to='home.CarType', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -45,7 +49,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='EventType',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('id', models.AutoField(primary_key=True,
+                 verbose_name='ID', serialize=False, auto_created=True)),
                 ('name', models.CharField(max_length=50)),
             ],
             options={
@@ -55,9 +60,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Venue',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
+                ('id', models.AutoField(primary_key=True,
+                 verbose_name='ID', serialize=False, auto_created=True)),
                 ('name', models.CharField(max_length=80)),
-                ('city', models.ForeignKey(default=1, to='home.City')),
+                ('city', models.ForeignKey(default=1,
+                 to='home.City', on_delete=models.CASCADE)),
             ],
             options={
             },
@@ -66,13 +73,14 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='event',
             name='event_type',
-            field=models.ForeignKey(to='home.EventType'),
+            field=models.ForeignKey(
+                to='home.EventType', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='event',
             name='venue',
-            field=models.ForeignKey(to='home.Venue'),
+            field=models.ForeignKey(to='home.Venue', on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]
