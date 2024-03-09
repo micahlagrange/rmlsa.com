@@ -110,12 +110,19 @@ USE_L10N = True
 USE_TZ = True
 
 
+with open('/etc/rmlsa.com.conf/awskeys') as f:
+    creds = f.readlines()
+    aws_key_id = creds[0].chomp().strip()
+    secret_key = creds[1].chomp().strip()
+
 DISTILL_DIR = '/opt/rmlsa/build/'
 DISTILL_PUBLISH = {
     'default': {
         'ENGINE': 'django_distill.backends.amazon_s3',
         'BUCKET': 'distill-staging',
         'PUBLIC_URL': 'http://distill-staging.s3-website-us-east-1.amazonaws.com/',
+        'ACCESS_KEY_ID': aws_key_id,
+        'SECRET_ACCESS_KEY': secret_key
     },
 }
 DISTILL_SKIP_ADMIN_DIRS = True
