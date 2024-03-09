@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth.views import logout as django_logout
+from django.contrib.auth.views import LogoutView
 from django.contrib.auth.decorators import login_required, permission_required
 
 from home.models import *
@@ -54,7 +54,7 @@ def gallery_admin(request):
 
 
 def logout(request):
-    django_logout(request, next_page='/')
+    LogoutView.as_view(request, next_page='/')
     return HttpResponseRedirect(reverse(home))
 
 
