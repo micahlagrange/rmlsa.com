@@ -21,7 +21,7 @@ elif socket.gethostname() == 'ip-172-31-47-20':
 elif socket.gethostname() == 'piserv':
     from rmlsa.settings_test import *
 else:
-    from rmlsa.settings_test import *
+    from rmlsa.settings_static import *
 
 
 LOGIN_REDIRECT_URL = '/edit/index/'
@@ -102,7 +102,7 @@ DISTILL_DIR = os.path.expanduser("~") + '/distill_dev/'
 DISTILL_PUBLISH = {
     'default': {
         'ENGINE': 'django_distill.backends.amazon_s3',
-        'BUCKET': 'distill_staging',
+        'BUCKET': 'distill-staging',
         # 'PUBLIC_URL': 'http://.../',
     },
 }
