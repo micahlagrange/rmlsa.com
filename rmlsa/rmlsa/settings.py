@@ -112,8 +112,8 @@ USE_TZ = True
 
 with open('/etc/rmlsa.com.conf/awskeys') as f:
     creds = f.readlines()
-    aws_key_id = creds[0].chomp().strip()
-    secret_key = creds[1].chomp().strip()
+    aws_key_id = creds[0].strip()
+    secret_key = creds[1].strip()
 
 DISTILL_DIR = '/opt/rmlsa/build/'
 DISTILL_PUBLISH = {
