@@ -3,7 +3,8 @@
 
 set -e
 
-nice \
-    python3 \
-	./manage.py \
-	distill-publish
+# python3 \
+# 	./manage.py \
+# 	distill-publish
+
+aws s3 sync /opt/rmlsa/build/ s3://distill-static/
