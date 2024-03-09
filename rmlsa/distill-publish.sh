@@ -7,4 +7,5 @@ set -e
 # 	./manage.py \
 # 	distill-publish
 
-aws s3 sync /opt/rmlsa/build/ s3://distill-static/
+aws s3 sync /opt/rmlsa/build/ s3://distill-staging/
+
