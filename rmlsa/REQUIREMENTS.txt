@@ -1,2 +1,4 @@
-Pillow
-Django==1.8.1
+pillow
+django==1.8.1
+django-distill
+django-distill[amazon]

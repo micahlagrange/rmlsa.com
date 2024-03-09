@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from distutils import dir_util
 import os
 import socket
 
@@ -97,3 +98,13 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+
+DISTILL_DIR = dir_util.home + '/distill_dev/'
+DISTILL_PUBLISH = {
+    'default': {
+        'ENGINE': 'django_distill.backends.amazon_s3',
+        'BUCKET': 'distill_staging',
+        # 'PUBLIC_URL': 'http://.../',
+    },
+}
+DISTILL_SKIP_ADMIN_DIRS = True
