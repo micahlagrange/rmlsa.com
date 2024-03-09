@@ -115,7 +115,7 @@ DISTILL_PUBLISH = {
     'default': {
         'ENGINE': 'django_distill.backends.amazon_s3',
         'BUCKET': 'distill-staging',
-        # 'PUBLIC_URL': 'http://.../',
+        'PUBLIC_URL': 'http://distill-staging.s3-website-us-east-1.amazonaws.com/',
     },
 }
 DISTILL_SKIP_ADMIN_DIRS = True
