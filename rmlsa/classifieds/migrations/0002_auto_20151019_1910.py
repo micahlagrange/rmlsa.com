@@ -14,9 +14,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AdImage',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(serialize=False,
+                 primary_key=True, verbose_name='ID', auto_created=True)),
                 ('image', models.ImageField(upload_to='classified_images', null=True)),
-                ('thumbnail', models.ImageField(upload_to='classified_images/thumbnails', null=True, blank=True, default=None)),
+                ('thumbnail', models.ImageField(
+                    upload_to='classified_images/thumbnails', null=True, blank=True, default=None)),
             ],
         ),
         migrations.RemoveField(
@@ -30,6 +32,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='adimage',
             name='ad',
-            field=models.ForeignKey(to='classifieds.Ad'),
+            field=models.ForeignKey(
+                to='classifieds.Ad', on_delete=models.CASCADE),
         ),
     ]
