@@ -1,16 +1,16 @@
 {% extends 'home/base.html' %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}Rules{% endblock %}
 
 {% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
 
 {% block content %}
-  {% for rule in rules %}
-  <div id="component">
-    <br>
-    <h1>Rules</h2>
+{% for rule in rules %}
+<div id="component">
+  <br>
+  <h1>Rules</h2>
     <br>
     <br>
     <br>
@@ -25,11 +25,11 @@
     <div class="padding">
       <embed src="{{ MEDIA_URL  }}{{ rule.rules_file }}" width="100%" height="800px" type='application/pdf'>
     </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  {% endfor %}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endfor %}
 {% endblock %}

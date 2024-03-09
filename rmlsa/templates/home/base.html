@@ -1,33 +1,38 @@
-{% load staticfiles %}
+{% load static %}
 
 <html>
-    <head>
-        <title>
-            RMLSA - {% block title %}Home{% endblock %}
-        </title>
-        <meta name="Framework" content="Django 1.8 by https://www.djangoproject.com" />
-        <meta name="description" content="RMLSA, Rocky Mountain Lightning Sprint Association the premier mini-sprint association in the rocky mountain region." />
-        <meta name="keywords" content="mini sprints, rmmsa, rmlsa, mini-sprints, rocky mountain mini sprints, rocky mountain mini sprint racing association" />
-        <meta name="robots" content="index, follow" />
-        <link rel="stylesheet" href="{% static 'home/components/com_easygallery/style.css' %}" type="text/css" />
-        <link rel="stylesheet" href="{% static 'home/components/com_easygallery/slimbox/css/slimbox.css' %}" type="text/css" media="screen" />
-        <script type="text/javascript" src="{% static 'home/components/com_easygallery/slimbox/js/mootools.js' %}"></script>
-        <script type="text/javascript" src="{% static 'home/components/com_easygallery/slimbox/js/slimbox.js' %}"></script>
-        <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" />
-        <meta charset="UTF-8">
 
-        <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/rokmoomenu.css' %}" type="text/css" />
-		<link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/template_css.css' %}" type="text/css" />
-    	<link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/style19.css' %}" type="text/css" />
-		<link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/rokzoom/rokzoom.css' %}" type="text/css" />
-		<link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/rokslidestrip.css' %}" type="text/css" />
+<head>
+    <title>
+        RMLSA - {% block title %}Home{% endblock %}
+    </title>
+    <meta name="Framework" content="Django 1.8 by https://www.djangoproject.com" />
+    <meta name="description"
+        content="RMLSA, Rocky Mountain Lightning Sprint Association the premier mini-sprint association in the rocky mountain region." />
+    <meta name="keywords"
+        content="mini sprints, rmmsa, rmlsa, mini-sprints, rocky mountain mini sprints, rocky mountain mini sprint racing association" />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="{% static 'home/components/com_easygallery/style.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'home/components/com_easygallery/slimbox/css/slimbox.css' %}" type="text/css"
+        media="screen" />
+    <script type="text/javascript" src="{% static 'home/components/com_easygallery/slimbox/js/mootools.js' %}"></script>
+    <script type="text/javascript" src="{% static 'home/components/com_easygallery/slimbox/js/slimbox.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" />
+    <meta charset="UTF-8">
 
-        <script type="text/javascript" src="{% static 'home/templates/rt_dimensions/js/mootools-release-1.11.js' %}"></script>
-        <script type="text/javascript">tempus="dusk"</script>
-        <script type="text/javascript" src="{% static 'home/templates/rt_dimensions/js/roktempus.js' %}"></script>
-        <script type="text/javascript" src="{% static 'home/templates/rt_dimensions/rokzoom/rokzoom.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/rokmoomenu.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/template_css.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/style19.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/rokzoom/rokzoom.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/rokslidestrip.css' %}" type="text/css" />
 
-        <!--[if IE]>
+    <script type="text/javascript"
+        src="{% static 'home/templates/rt_dimensions/js/mootools-release-1.11.js' %}"></script>
+    <script type="text/javascript">tempus = "dusk"</script>
+    <script type="text/javascript" src="{% static 'home/templates/rt_dimensions/js/roktempus.js' %}"></script>
+    <script type="text/javascript" src="{% static 'home/templates/rt_dimensions/rokzoom/rokzoom.js' %}"></script>
+
+    <!--[if IE]>
             <script type="text/javascript">
             sfHover = function() {
                 var sfEls = document.getElementById("horiz-menu").getElementsByTagName("LI");
@@ -44,138 +49,175 @@
             </script>
         <![endif]-->
 
-        <script type="text/javascript">
-            window.addEvent('load', function() {
-                RokZoom.init({
-                    imageDir: "{% static 'home/templates/rt_dimensions/rokzoom/images/' %}",
-                    resizeFX: {
-                        duration: 700,
-                        transition: Fx.Transitions.Cubic.easeOut,
-                        wait: true
-                    },
-                    opacityFX: {
-                        duration: 500,
-                        wait: false
-                    }
-                });
+    <script type="text/javascript">
+        window.addEvent('load', function () {
+            RokZoom.init({
+                imageDir: "{% static 'home/templates/rt_dimensions/rokzoom/images/' %}",
+                resizeFX: {
+                    duration: 700,
+                    transition: Fx.Transitions.Cubic.easeOut,
+                    wait: true
+                },
+                opacityFX: {
+                    duration: 500,
+                    wait: false
+                }
             });
-        </script>
+        });
+    </script>
 
-        <link rel="stylesheet" href="{% static 'home/styles.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}" type="text/css">
 
-        <style>
-            .alert-box{
-                color:#555;
-                border-radius:10px;
-                font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
-                padding:10px 10px 10px 36px;
-                margin:10px;
-            }
+    <style>
+        .alert-box {
+            color: #555;
+            border-radius: 10px;
+            font-family: Tahoma, Geneva, Arial, sans-serif;
+            font-size: 11px;
+            padding: 10px 10px 10px 36px;
+            margin: 10px;
+        }
 
-            .alert-box span{
-                font-weight:bold;
-                text-transform:uppercase;
-            }
+        .alert-box span {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-            .error {
-                background:#ffecec url("{% static 'home/images/icons/error.png' %}") no-repeat 10px 50%;
-                border:1px solid #f5aca6;
-            }
-            .success {
-                background:#e9ffd9 url("{% static 'home/images/icons/success.png' %}") no-repeat 10px 50%;
-                border:1px solid #a6ca8a;
-            }
-            .notice {
-                background:#fff8c4 url("{% static 'home/images/icons/notice.png' %}") no-repeat 10px 50%;
-                border:1px solid #f2c779;
-            }
+        .error {
+            background:#ffecec url("{% static 'home/images/icons/error.png' %}") no-repeat 10px 50%;
+            border: 1px solid #f5aca6;
+        }
 
-            /* header */
-            #bg-top {
-                width:100%; margin-left: auto; margin-right: auto;
-                background: #000 url("{% static 'home/templates/rt_dimensions/images/backgrounds/texture-17.jpg' %}") 50% 0 no-repeat;
-            }
+        .success {
+            background:#e9ffd9 url("{% static 'home/images/icons/success.png' %}") no-repeat 10px 50%;
+            border: 1px solid #a6ca8a;
+        }
 
-            /* footer */
-            #bg-bottom, #bg-bottom-ie {
-                background: url("{% static 'home/templates/rt_dimensions/images/backgrounds/texture-17.jpg' %}") 50% 100% no-repeat;
-            }
+        .notice {
+            background:#fff8c4 url("{% static 'home/images/icons/notice.png' %}") no-repeat 10px 50%;
+            border: 1px solid #f2c779;
+        }
+
+        /* header */
+        #bg-top {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background: #000 url("{% static 'home/templates/rt_dimensions/images/backgrounds/texture-17.jpg' %}") 50% 0 no-repeat;
+        }
+
+        /* footer */
+        #bg-bottom,
+        #bg-bottom-ie {
+            background: url("{% static 'home/templates/rt_dimensions/images/backgrounds/texture-17.jpg' %}") 50% 100% no-repeat;
+        }
+    </style>
+</head>
+
+<!--begin body-->
+
+<body id="dusk" class="f-default style19">
+    <!-- begin top part -->
+    <div id="bg-top">
+        <div id="bg-top-overlay"></div>
+    </div>
+    <!-- end top part -->
+    <!-- start overall frame -->
+    <div id="overall-frame">
+        <!-- begin bottom part IE ONLY -->
+        <div id="bg-bottom-ie">
+            <div id="bg-bottom-overlay-ie"></div>
+        </div>
+        <!-- end bottom part ie -->
+        <!-- start bottom part OTHER BROWSERS -->
+        <div id="bg-bottom">
+            <div id="bg-bottom-overlay">
+                <!-- begin wrapper -->
+                <div class="wrapper">
+                    <div id="top-shadow">
+                        <div class="shadow-1"></div>
+                        <div class="shadow-2"></div>
+                        <div class="shadow-3"></div>
+                        <!-- begin header -->
+                        <div id="header">
+                            <div id="logo-space"><a href="/" class="nounder"><img
+                                        src="{% static 'home/images/logo.gif' %}" border="0" alt=""
+                                        id="logo"></a><br><span></span></div>
+                        </div>
+                        <div id="iefix">
+                            <div id="horiz-menu" class="suckerfish">
+                                <ul class="menu" id="horiznav">
+
+                                    {% if home == 'active' %}<li class="active">{% else %}
+                                    <li>{% endif %}
+                                        <span class="top"><a href="{% url 'home:home' %}">Home</a><span
+                                                class="selector"></span></span>
+                                    </li>
+
+                                    {% if driver_profile == 'active' %}<li class="active">{% else %}
+                                    <li>{% endif %}
+                                        <span class="topdaddy"><a class="topdaddy"
+                                                href="{% url 'home:driver_profile' %}">Driver Profile</a><span
+                                                class="selector"></span></span>
+                                    </li>
+
+                                    {% if info == 'active' %}<li class="active">{% else %}
+                                    <li>{% endif %}
+                                        <span class="topdaddy"><a class="topdaddy" href="{% url 'home:info' %}">General
+                                                Info</a><span class="selector"></span></span>
+                                        <ul>
+                                            <li><span class="top"><a
+                                                        href="{% url 'classifieds:index' %}">Classifieds</a><span
+                                                        class="selector"></span></span></li>
+                                            <li><span class="top"><a href="{% url 'home:schedule' %}">Schedule</a><span
+                                                        class="selector"></span></span></li>
+                                            <li><span class="top"><a href="{% url 'home:rules' %}">RMLSA Rules</a><span
+                                                        class="selector"></span></span></li>
+                                            <li><span class="top"><a href="{% url 'profiles:standings' %}">Point
+                                                        Standings</a><span class="selector"></span></span></li>
+                                            <li><span class="top"><a href="{% url 'home:web_links' %}">Web
+                                                        Links</a><span class="selector"></span></span></li>
+                                        </ul>
+                                    </li>
+
+                                    {% if gallery == 'active' %}<li class="active">{% else %}
+                                    <li>{% endif %}
+                                        <span class="topdaddy"><a class="topdaddy"
+                                                href="{% url 'gallery:pictures' %}">RMLSA Gallery</a><span
+                                                class="selector"></span></span>
+                                        <ul>
+                                            <li><span class="top"><a
+                                                        href="{% url 'gallery:pictures' %}">Pictures</a><span
+                                                        class="selector"></span></span></li>
+                                            <li><span class="top"><a
+                                                        href="{% url 'gallery:picture_archive_index' %}">RMLSA Archive
+                                                        Index</a><span class="selector"></span></span></li>
+                                        </ul>
+                                    </li>
+
+                                    {% if videos == 'active' %}<li class="active">{% else %}
+                                    <li>{% endif %}
+                                        <span class="topdaddy"><a class="topdaddy"
+                                                href="{% url 'gallery:video_archive_index' %}">RMLSA Videos</a><span
+                                                class="selector"></span></span>
+                                        <ul>
+                                            <li><span class="top"><a href="{% url 'gallery:videos' 2014 %}">2014 RMLSA
+                                                        Videos</a><span class="selector"></span></span></li>
+                                            <li><span class="top"><a href="{% url 'gallery:videos' 2013 %}">2013 RMLSA
+                                                        Videos</a><span class="selector"></span></span></li>
+                                            <li><span class="top"><a href="{% url 'gallery:videos' 2012 %}">2012 Season
+                                                        in Review</a><span class="selector"></span></span></li>
+                                        </ul>
+                                    </li>
+
+                                    {% if membership_form == 'active' %}<li class="active">{% else %}
+                                    <li>{% endif %}
+                                        <span class="topdaddy"><a href="{% url 'home:membership_form' %}">Membership
+                                                Application</a><span class="selector"></span></span>
+                                    </li>
 
 
-        </style>
-    </head>
-
-    <!--begin body-->
-    <body id="dusk" class="f-default style19">
-        <!-- begin top part -->
-		<div id="bg-top">
-			<div id="bg-top-overlay"></div>
-		</div>
-		<!-- end top part -->
-        <!-- start overall frame -->
-		<div id="overall-frame">
-			<!-- begin bottom part IE ONLY -->
-			<div id="bg-bottom-ie">
-				<div id="bg-bottom-overlay-ie"></div>
-			</div>
-			<!-- end bottom part ie -->
-            <!-- start bottom part OTHER BROWSERS -->
-			<div id="bg-bottom">
-				<div id="bg-bottom-overlay">
-                    <!-- begin wrapper -->
-					<div class="wrapper">
-						<div id="top-shadow">
-							<div class="shadow-1"></div>
-							<div class="shadow-2"></div>
-							<div class="shadow-3"></div>
-							<!-- begin header -->
-                            <div id="header">
-                                <div id="logo-space"><a href="/" class="nounder"><img src="{% static 'home/images/logo.gif' %}" border="0" alt="" id="logo"></a><br><span></span></div>
-                            </div>
-                            <div id="iefix">
-                                <div id="horiz-menu" class="suckerfish">
-                                    <ul class="menu" id="horiznav">
-
-                                        {% if home == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                        <span class="top"><a href="{% url 'home:home' %}">Home</a><span class="selector"></span></span></li>
-
-                                        {% if driver_profile == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                        <span class="topdaddy"><a class="topdaddy" href="{% url 'home:driver_profile' %}">Driver Profile</a><span class="selector"></span></span></li>
-
-                                        {% if info == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                        <span class="topdaddy"><a class="topdaddy" href="{% url 'home:info' %}">General Info</a><span class="selector"></span></span>
-                                            <ul>
-                                                <li><span class="top"><a href="{% url 'classifieds:index' %}">Classifieds</a><span class="selector"></span></span></li>
-                                                <li><span class="top"><a href="{% url 'home:schedule' %}">Schedule</a><span class="selector"></span></span></li>
-                                                <li><span class="top"><a href="{% url 'home:rules' %}">RMLSA Rules</a><span class="selector"></span></span></li>
-                                                <li><span class="top"><a href="{% url 'profiles:standings' %}">Point Standings</a><span class="selector"></span></span></li>
-                                                <li><span class="top"><a href="{% url 'home:web_links' %}">Web Links</a><span class="selector"></span></span></li>
-                                            </ul>
-                                        </li>
-
-                                        {% if gallery == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                        <span class="topdaddy"><a class="topdaddy" href="{% url 'gallery:pictures' %}">RMLSA Gallery</a><span class="selector"></span></span>
-                                            <ul>
-                                                <li><span class="top"><a href="{% url 'gallery:pictures' %}">Pictures</a><span class="selector"></span></span></li>
-                                                <li><span class="top"><a href="{% url 'gallery:picture_archive_index' %}">RMLSA Archive Index</a><span class="selector"></span></span></li>
-                                            </ul>
-                                        </li>
-
-                                        {% if videos == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                        <span class="topdaddy"><a class="topdaddy" href="{% url 'gallery:video_archive_index' %}">RMLSA Videos</a><span class="selector"></span></span>
-                                            <ul>
-                                                <li><span class="top"><a href="{% url 'gallery:videos' 2014 %}">2014 RMLSA Videos</a><span class="selector"></span></span></li>
-                                                <li><span class="top"><a href="{% url 'gallery:videos' 2013 %}">2013 RMLSA Videos</a><span class="selector"></span></span></li>
-                                                <li><span class="top"><a href="{% url 'gallery:videos' 2012 %}">2012 Season in Review</a><span class="selector"></span></span></li>
-                                            </ul>
-                                        </li>
-
-                                        {% if membership_form == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                            <span class="topdaddy"><a href="{% url 'home:membership_form' %}">Membership Application</a><span class="selector"></span></span>
-                                        </li>
-
-
-                                        <!--{% if user.is_authenticated %}
+                                    <!--{% if user.is_authenticated %}
                                             {% if contributor_menu == 'active' %}<li class="active">{% else %}<li>{% endif %}
                                             <span class="topdaddy"><a class="topdaddy">Menu</a><span class="selector"></span></span>
                                                 <ul>
@@ -186,273 +228,371 @@
                                         {% else %}
                                             <li><span class="topdaddy"><a href="{% url 'login' %}">Login</a><span class="selector"></span></span></li>
                                         {% endif %}-->
-                                    </ul>
-                                </div>
+                                </ul>
                             </div>
-                            <!-- end header -->
-                            <!-- begin inset -->
-                            {% block inset_graphic %}
-                                <div id="inset">
-                                    <img src="{% static 'home/images/stories/inset_graphic_lucas_oil.jpg' %}"
-                                         alt="inset_graphic_lucas_oil.jpg" style="margin: 5px; width: 900px; height: 260px"
-                                         title="inset_graphic_lucas_oil.jpg" height="260" width="900" />
-                                </div>
-                            {% endblock %}
-                            <!-- end inset -->
-                            <!-- begin mainbody -->
-                            <div id="body-shadow-left">
-                                <div id="body-shadow-right">
-                                    <div id="body">
-                                        <table class="mainbody" border="0" cellspacing="0" cellpadding="0">
-                                            <tr valign="top">
-                                                <td class="maincol">
-                                                    <div id="maincol">
-                                                        <div class="accent"><div class="accent-left"></div><div class="accent-right"></div></div>
-                                                            <div id="topmodules" class="spacer w99">
-                                                                <div class="block">
-                                                                    <div class="moduletable">&nbsp;
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        {% if results.errors or custom_errors %}
-                                                            <section>
-                                                                {% if custom_errors %}
-                                                                    <ul id="no_bullet">
-                                                                    {% for error in custom_errors %}
-                                                                        <li>
-                                                                            <div class="alert-box error">
-                                                                                <span>error: </span>{{ error }}
-                                                                            </div>
-                                                                        </li>
-                                                                    {% endfor %}
-                                                                    </ul>
-                                                                {% endif %}
-                                                            </section>
-                                                        {% endif %}
-                                                        {% if custom_messages %}
-                                                            <section>
-                                                                    <ul id="no_bullet">
-                                                                    {% for message in custom_messages %}
-                                                                        <li>
-                                                                            <div class="alert-box notice">
-                                                                                <span>notice: </span>{{ message }}
-                                                                            </div>
-                                                                        </li>
-                                                                    {% endfor %}
-                                                                    </ul>
-                                                            </section>
-                                                        {% endif %}
-                                                        {% if custom_success %}
-                                                            <section>
-                                                                    <ul id="no_bullet">
-                                                                    {% for success in custom_success %}
-                                                                        <li>
-                                                                            <div class="alert-box success">
-                                                                                <span>success: </span>{{ success }}
-                                                                            </div>
-                                                                        </li>
-                                                                    {% endfor %}
-                                                                    </ul>
-                                                            </section>
-                                                        {% endif %}
-
-                                                        {% block content %}{% endblock %}<div style="padding:2em;"></div>
-
+                        </div>
+                        <!-- end header -->
+                        <!-- begin inset -->
+                        {% block inset_graphic %}
+                        <div id="inset">
+                            <img src="{% static 'home/images/stories/inset_graphic_lucas_oil.jpg' %}"
+                                alt="inset_graphic_lucas_oil.jpg" style="margin: 5px; width: 900px; height: 260px"
+                                title="inset_graphic_lucas_oil.jpg" height="260" width="900" />
+                        </div>
+                        {% endblock %}
+                        <!-- end inset -->
+                        <!-- begin mainbody -->
+                        <div id="body-shadow-left">
+                            <div id="body-shadow-right">
+                                <div id="body">
+                                    <table class="mainbody" border="0" cellspacing="0" cellpadding="0">
+                                        <tr valign="top">
+                                            <td class="maincol">
+                                                <div id="maincol">
+                                                    <div class="accent">
+                                                        <div class="accent-left"></div>
+                                                        <div class="accent-right"></div>
                                                     </div>
-                                                    <div style="width:100%;float:left;"></div>
-                                                    <div style="float:left;" id="bottommodules" class="spacer w99">
+                                                    <div id="topmodules" class="spacer w99">
                                                         <div class="block">
-                                                            <div class="moduletable">
-                                                                <h3><span style="color: #ffd700;">Race tracks:</span></h3>
-                                                                <table style="width: 30px; height: 30px; border-width: 0px" align="left" border="0" width="30"><tbody>
+                                                            <div class="moduletable">&nbsp;
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% if results.errors or custom_errors %}
+                                                    <section>
+                                                        {% if custom_errors %}
+                                                        <ul id="no_bullet">
+                                                            {% for error in custom_errors %}
+                                                            <li>
+                                                                <div class="alert-box error">
+                                                                    <span>error: </span>{{ error }}
+                                                                </div>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        {% endif %}
+                                                    </section>
+                                                    {% endif %}
+                                                    {% if custom_messages %}
+                                                    <section>
+                                                        <ul id="no_bullet">
+                                                            {% for message in custom_messages %}
+                                                            <li>
+                                                                <div class="alert-box notice">
+                                                                    <span>notice: </span>{{ message }}
+                                                                </div>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </section>
+                                                    {% endif %}
+                                                    {% if custom_success %}
+                                                    <section>
+                                                        <ul id="no_bullet">
+                                                            {% for success in custom_success %}
+                                                            <li>
+                                                                <div class="alert-box success">
+                                                                    <span>success: </span>{{ success }}
+                                                                </div>
+                                                            </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </section>
+                                                    {% endif %}
+
+                                                    {% block content %}{% endblock %}<div style="padding:2em;"></div>
+
+                                                </div>
+                                                <div style="width:100%;float:left;"></div>
+                                                <div style="float:left;" id="bottommodules" class="spacer w99">
+                                                    <div class="block">
+                                                        <div class="moduletable">
+                                                            <h3><span style="color: #ffd700;">Race tracks:</span></h3>
+                                                            <table style="width: 30px; height: 30px; border-width: 0px"
+                                                                align="left" border="0" width="30">
+                                                                <tbody>
                                                                     <tr>
                                                                         <td>&nbsp;
                                                                             <p align="center">
-                                                                                    <a href="http://www.i-76speedway.com/" target="_blank">
-                                                                                        <img src="{% static 'home/images/stories/plaque-i76.jpg' %}" alt="plaque-i76.jpg"
-                                                                                             style="width: 175px; height: 60px" title="plaque-i76.jpg" height="60" width="175" />
-                                                                                    </a>
+                                                                                <a href="http://www.i-76speedway.com/"
+                                                                                    target="_blank">
+                                                                                    <img src="{% static 'home/images/stories/plaque-i76.jpg' %}"
+                                                                                        alt="plaque-i76.jpg"
+                                                                                        style="width: 175px; height: 60px"
+                                                                                        title="plaque-i76.jpg"
+                                                                                        height="60" width="175" />
+                                                                                </a>
                                                                             </p>
                                                                         </td>
                                                                         <td>&nbsp;
-                                                                            <p align="center"><a href="http://shermancountyspeedway.com/" target="_blank">
-                                                                                <img src="{% static 'home/images/stories/sherman-cty-plaque.jpg' %}" alt="sherman-cty-plaque.jpg"
-                                                                                     style="margin: 5px; width: 175px; height: 60px"
-                                                                                     title="sherman-cty-plaque.jpg" align="top" height="60" width="175" /></a>
+                                                                            <p align="center"><a
+                                                                                    href="http://shermancountyspeedway.com/"
+                                                                                    target="_blank">
+                                                                                    <img src="{% static 'home/images/stories/sherman-cty-plaque.jpg' %}"
+                                                                                        alt="sherman-cty-plaque.jpg"
+                                                                                        style="margin: 5px; width: 175px; height: 60px"
+                                                                                        title="sherman-cty-plaque.jpg"
+                                                                                        align="top" height="60"
+                                                                                        width="175" /></a>
                                                                             </p>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>&nbsp;
-                                                                            <p align="center"><a href="http://phillipscountyraceway.com/pcr/" target="_blank">
-                                                                                <img src="{% static 'home/images/stories/pcr-icon_3.jpg' %}" alt="pcr-icon_3.jpg"
-                                                                                 style="margin: 5px; width: 160px; height: 105px" title="pcr-icon_3.jpg"
-                                                                                 align="top" height="105" width="160" /></a>
+                                                                            <p align="center"><a
+                                                                                    href="http://phillipscountyraceway.com/pcr/"
+                                                                                    target="_blank">
+                                                                                    <img src="{% static 'home/images/stories/pcr-icon_3.jpg' %}"
+                                                                                        alt="pcr-icon_3.jpg"
+                                                                                        style="margin: 5px; width: 160px; height: 105px"
+                                                                                        title="pcr-icon_3.jpg"
+                                                                                        align="top" height="105"
+                                                                                        width="160" /></a>
                                                                             </p>
                                                                         </td>
                                                                         <td>&nbsp;
-                                                                            <p align="center"><a href="http://www.dodgecityraceway.com/" target="_blank">
-                                                                                <img src="{% static 'home/images/stories/dcrplogo.png' %}" alt="dcrplogo.png"
-                                                                                     style="margin: 5px; width: 99px; height: 84px" title="dcrplogo.png"
-                                                                                     align="top" height="84" width="99" /></a>
+                                                                            <p align="center"><a
+                                                                                    href="http://www.dodgecityraceway.com/"
+                                                                                    target="_blank">
+                                                                                    <img src="{% static 'home/images/stories/dcrplogo.png' %}"
+                                                                                        alt="dcrplogo.png"
+                                                                                        style="margin: 5px; width: 99px; height: 84px"
+                                                                                        title="dcrplogo.png" align="top"
+                                                                                        height="84" width="99" /></a>
                                                                             </p>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>&nbsp;<a href="https://www.facebook.com/LincolnCountyRaceway" target="_blank">
-                                                                            <img src="{% static 'home/images/stories/lcr_logo_-_copy.jpg' %}" alt="lcr_logo_-_copy.jpg"
-                                                                                 style="margin: 5px; width: 140px; height: 105px" title="lcr_logo_-_copy.jpg"
-                                                                                 align="top" height="105" width="140" /></a>
+                                                                        <td>&nbsp;<a
+                                                                                href="https://www.facebook.com/LincolnCountyRaceway"
+                                                                                target="_blank">
+                                                                                <img src="{% static 'home/images/stories/lcr_logo_-_copy.jpg' %}"
+                                                                                    alt="lcr_logo_-_copy.jpg"
+                                                                                    style="margin: 5px; width: 140px; height: 105px"
+                                                                                    title="lcr_logo_-_copy.jpg"
+                                                                                    align="top" height="105"
+                                                                                    width="140" /></a>
                                                                         </td>
                                                                         <td>&nbsp;</td>
                                                                     </tr>
-                                                                </tbody></table>
+                                                                </tbody>
+                                                            </table>
                                                             <p align="center">
-                                                                <a href="http://www.bigwestracing.com" target="_blank"></a></p>
-                                                                <p align="center"><br /></p><p align="center">&nbsp;</p><p align="center"><br /></p><p align="center"><br /></p><p align="center"><br /></p><p align="center"><br /></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                <td class="secondcol">
-                                                    <div id="secondcol">
-                                                        <div class="accent"><div class="accent-left"></div><div class="accent-right"></div></div>
-
-                                                        {% if not sidebar_search_off %}
-                                                            <div class="moduletable-hilite1">
-                                                                <h3>Search</h3>
-                                                                <form action="{% url 'search:search' %}" method="get">
-                                                                    <div class="search">
-                                                                        <form>
-                                                                            <input name="searchword" alt="search" class="inputbox" type="text" size="12">
-                                                                            <input type="submit" value="GO">
-                                                                        </form>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        {% endif %}
-
-                                                        {% if random_image.thumbnail %}
-                                                            <div class="moduletable-hilite1">
-                                                                <h3>From the Gallery</h3>
-                                                                <a class="eg" href="{{ MEDIA_URL }}{{ random_image.image }}">
-                                                                    <img class="eg" id="from_gallery" src="{{ MEDIA_URL }}{{ random_image.thumbnail }}" border="0" /></a>
-                                                            </div>
-                                                        {% endif %}
-
-                                                        <div class="moduletable-hilite1">
-                                                            <h3> RMLSA Facebook</h3>
-                                                            <div style="padding-left:2em;">
-                                                                <a href="http://on.fb.me/shBZGC" target="_self"><img src="{% static 'home/images/icons/facebook.PNG' %}" alt="facebook-icon.jpg" style="margin: 5px; width: 75px; height: 75px" title="facebook-icon.jpg" height="75" width="75" /></a>
-                                                        </div></div>
-                                                        {% if partners %}
-                                                            <div class="moduletable-hilite3" style="margin:0">
-                                                                <h3>Partner Links</h3>
-                                                                <table style="border-width: 0px" border="0" cellpadding="1" cellspacing="1">
-                                                                    <tbody>
-                                                                {% for p in partners %}
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div style="text-align: center" align="justify">
-                                                                                <a href="{{ p.partner.url }}" target="_blank">
-                                                                                    {% if p.partner.image %}
-                                                                                        <img src="{{ MEDIA_URL }}{{ p.partner.image }}" alt="{{ p.filename }}" style="margin: 5px; float: left" title="{{ p.partner.name }}" height="60" width="175">
-                                                                                    {% else %}
-                                                                                        {{ p.partner.name }}
-                                                                                    {% endif %}
-                                                                                </a>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                {% if user.is_authenticated %}
-                                                                                <div style="float:left;">
-                                                                                    <a class="delbtn" href="{% url 'home:delete_partner' p.partner.id %}">x</a>
-                                                                                </div>
-                                                                                {% endif %}
-                                                                            </td>
-                                                                        </tr>
-                                                                {% endfor %}
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        {% endif %}
-                                                        {% if perms.home.edit_partner %}
-                                                                <div style="margin: 15px;">
-                                                                    <a class="btn" href="/admin">Add partners</a>
-                                                                </div>
-                                                        {% endif %}
-                                                        <div class="moduletable-hilite3">
-                                                            <h3>Main Menu</h3>
-                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                                <tr align="left"><td>
-                                                                    {% if home == 'active' %} <a id="active_menu" href="{% url 'home:home' %}" class="mainlevel">Home</a>
-                                                                    {% else %} <a href="{% url 'home:home' %}" class="mainlevel">Home</a>
-                                                                {% endif %}</td></tr>
-                                                                <tr align="left"><td>
-                                                                    {% if driver_profile == 'active' %}<a id="active_menu" href="{% url 'home:driver_profile' %}" class="mainlevel" >Driver Profile</a>
-                                                                    {% else %}<a href="{% url 'home:driver_profile' %}" class="mainlevel" >Driver Profile</a>
-                                                                {% endif %}</td></tr>
-                                                                <tr align="left"><td>
-                                                                    {% if rules == 'active' %}<a id="active_menu" href="{% url 'home:rules' %}" class="mainlevel" >Rules</a>
-                                                                    {% else %}<a href="{% url 'home:rules' %}" class="mainlevel" >Rules</a>
-                                                                {% endif %}</td></tr>
-                                                                <tr align="left"><td>
-                                                                    {% if schedule == 'active' %}<a id="active_menu" href="{% url 'home:schedule' %}" class="mainlevel" >Schedule</a>
-                                                                    {% else %}<a href="{% url 'home:schedule' %}" class="mainlevel" >Schedule</a>
-                                                                {% endif %}</td></tr>
-                                                                <tr align="left"><td>
-                                                                    {% if gallery == 'active' %}<a id="active_menu" href="{% url 'gallery:pictures' %}" class="mainlevel" >RMLSA Gallery</a>
-                                                                    {% else %}<a href="{% url 'gallery:pictures' %}" class="mainlevel" >RMLSA Gallery</a>
-                                                                {% endif %}</td></tr>
-                                                            </table>
-                                                        </div>
-                                                        <div class="moduletable-hilite3">
-                                                            <h3>Other Menu</h3>
-                                                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                                                <tr align="left"><td><a href="{% url 'home:web_links' %}" class="mainlevel" >Web Links</a></td></tr>
-                                                                <tr align="left"><td><a href="http://www.bigwestracing.com/forums/forumdisplay.php?f=45" target="_blank" class="mainlevel" >Mini Sprint Forum</a></td></tr>
-                                                                <tr align="left"><td><a href="{% url 'home:membership_form' %}" class="mainlevel" >Membership</a></td></tr>
-                                                            </table>
+                                                                <a href="http://www.bigwestracing.com"
+                                                                    target="_blank"></a>
+                                                            </p>
+                                                            <p align="center"><br /></p>
+                                                            <p align="center">&nbsp;</p>
+                                                            <p align="center"><br /></p>
+                                                            <p align="center"><br /></p>
+                                                            <p align="center"><br /></p>
+                                                            <p align="center"><br /></p>
                                                         </div>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="maincol bottom">
-                                                    <div class="accent"><div class="accent-left"></div><div class="accent-right"></div></div>
-                                                </td>
-                                                <td class="secondcol bottom">
-                                                    <div class="accent"><div class="accent-left"></div><div class="accent-right"></div></div>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="secondcol">
+                                                <div id="secondcol">
+                                                    <div class="accent">
+                                                        <div class="accent-left"></div>
+                                                        <div class="accent-right"></div>
+                                                    </div>
+
+                                                    {% if not sidebar_search_off %}
+                                                    <div class="moduletable-hilite1">
+                                                        <h3>Search</h3>
+                                                        <form action="{% url 'search:search' %}" method="get">
+                                                            <div class="search">
+                                                                <form>
+                                                                    <input name="searchword" alt="search"
+                                                                        class="inputbox" type="text" size="12">
+                                                                    <input type="submit" value="GO">
+                                                                </form>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    {% endif %}
+
+                                                    {% if random_image.thumbnail %}
+                                                    <div class="moduletable-hilite1">
+                                                        <h3>From the Gallery</h3>
+                                                        <a class="eg" href="{{ MEDIA_URL }}{{ random_image.image }}">
+                                                            <img class="eg" id="from_gallery"
+                                                                src="{{ MEDIA_URL }}{{ random_image.thumbnail }}"
+                                                                border="0" /></a>
+                                                    </div>
+                                                    {% endif %}
+
+                                                    <div class="moduletable-hilite1">
+                                                        <h3> RMLSA Facebook</h3>
+                                                        <div style="padding-left:2em;">
+                                                            <a href="http://on.fb.me/shBZGC" target="_self"><img
+                                                                    src="{% static 'home/images/icons/facebook.PNG' %}"
+                                                                    alt="facebook-icon.jpg"
+                                                                    style="margin: 5px; width: 75px; height: 75px"
+                                                                    title="facebook-icon.jpg" height="75"
+                                                                    width="75" /></a>
+                                                        </div>
+                                                    </div>
+                                                    {% if partners %}
+                                                    <div class="moduletable-hilite3" style="margin:0">
+                                                        <h3>Partner Links</h3>
+                                                        <table style="border-width: 0px" border="0" cellpadding="1"
+                                                            cellspacing="1">
+                                                            <tbody>
+                                                                {% for p in partners %}
+                                                                <tr>
+                                                                    <td>
+                                                                        <div style="text-align: center" align="justify">
+                                                                            <a href="{{ p.partner.url }}"
+                                                                                target="_blank">
+                                                                                {% if p.partner.image %}
+                                                                                <img src="{{ MEDIA_URL }}{{ p.partner.image }}"
+                                                                                    alt="{{ p.filename }}"
+                                                                                    style="margin: 5px; float: left"
+                                                                                    title="{{ p.partner.name }}"
+                                                                                    height="60" width="175">
+                                                                                {% else %}
+                                                                                {{ p.partner.name }}
+                                                                                {% endif %}
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if user.is_authenticated %}
+                                                                        <div style="float:left;">
+                                                                            <a class="delbtn"
+                                                                                href="{% url 'home:delete_partner' p.partner.id %}">x</a>
+                                                                        </div>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    {% endif %}
+                                                    {% if perms.home.edit_partner %}
+                                                    <div style="margin: 15px;">
+                                                        <a class="btn" href="/admin">Add partners</a>
+                                                    </div>
+                                                    {% endif %}
+                                                    <div class="moduletable-hilite3">
+                                                        <h3>Main Menu</h3>
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr align="left">
+                                                                <td>
+                                                                    {% if home == 'active' %} <a id="active_menu"
+                                                                        href="{% url 'home:home' %}"
+                                                                        class="mainlevel">Home</a>
+                                                                    {% else %} <a href="{% url 'home:home' %}"
+                                                                        class="mainlevel">Home</a>
+                                                                    {% endif %}</td>
+                                                            </tr>
+                                                            <tr align="left">
+                                                                <td>
+                                                                    {% if driver_profile == 'active' %}<a
+                                                                        id="active_menu"
+                                                                        href="{% url 'home:driver_profile' %}"
+                                                                        class="mainlevel">Driver Profile</a>
+                                                                    {% else %}<a href="{% url 'home:driver_profile' %}"
+                                                                        class="mainlevel">Driver Profile</a>
+                                                                    {% endif %}</td>
+                                                            </tr>
+                                                            <tr align="left">
+                                                                <td>
+                                                                    {% if rules == 'active' %}<a id="active_menu"
+                                                                        href="{% url 'home:rules' %}"
+                                                                        class="mainlevel">Rules</a>
+                                                                    {% else %}<a href="{% url 'home:rules' %}"
+                                                                        class="mainlevel">Rules</a>
+                                                                    {% endif %}</td>
+                                                            </tr>
+                                                            <tr align="left">
+                                                                <td>
+                                                                    {% if schedule == 'active' %}<a id="active_menu"
+                                                                        href="{% url 'home:schedule' %}"
+                                                                        class="mainlevel">Schedule</a>
+                                                                    {% else %}<a href="{% url 'home:schedule' %}"
+                                                                        class="mainlevel">Schedule</a>
+                                                                    {% endif %}</td>
+                                                            </tr>
+                                                            <tr align="left">
+                                                                <td>
+                                                                    {% if gallery == 'active' %}<a id="active_menu"
+                                                                        href="{% url 'gallery:pictures' %}"
+                                                                        class="mainlevel">RMLSA Gallery</a>
+                                                                    {% else %}<a href="{% url 'gallery:pictures' %}"
+                                                                        class="mainlevel">RMLSA Gallery</a>
+                                                                    {% endif %}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="moduletable-hilite3">
+                                                        <h3>Other Menu</h3>
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr align="left">
+                                                                <td><a href="{% url 'home:web_links' %}"
+                                                                        class="mainlevel">Web Links</a></td>
+                                                            </tr>
+                                                            <tr align="left">
+                                                                <td><a href="http://www.bigwestracing.com/forums/forumdisplay.php?f=45"
+                                                                        target="_blank" class="mainlevel">Mini Sprint
+                                                                        Forum</a></td>
+                                                            </tr>
+                                                            <tr align="left">
+                                                                <td><a href="{% url 'home:membership_form' %}"
+                                                                        class="mainlevel">Membership</a></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="maincol bottom">
+                                                <div class="accent">
+                                                    <div class="accent-left"></div>
+                                                    <div class="accent-right"></div>
+                                                </div>
+                                            </td>
+                                            <td class="secondcol bottom">
+                                                <div class="accent">
+                                                    <div class="accent-left"></div>
+                                                    <div class="accent-right"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
+                        </div>
                         <!-- end mainbody -->
-						<!-- begin bottom panel -->
-						<div id="bottom-modules">
-							<div class="padding" ></div>
-						</div>
-						<div id="footer-bar">
-							<div align="center">
-                                    <span id="rocket">website by...<br> Micah Turner</span>
+                        <!-- begin bottom panel -->
+                        <div id="bottom-modules">
+                            <div class="padding"></div>
+                        </div>
+                        <div id="footer-bar">
+                            <div align="center">
+                                <span id="rocket">website by...<br> Micah Turner</span>
                                 </a>
                             </div>
-						</div>
-						<div id="footer-shadow">
-							<div class="shadow-1"></div>
-							<div class="shadow-2"></div>
-							<div class="shadow-3"></div>
-						</div>
-						<!--end body panel -->
-					</div>
-					<!-- end wrapper -->
-				</div>
-			</div>
-			<!-- end bottom part OTHER BROWSERS -->
-		</div>
-		<!-- end overall frame -->
+                        </div>
+                        <div id="footer-shadow">
+                            <div class="shadow-1"></div>
+                            <div class="shadow-2"></div>
+                            <div class="shadow-3"></div>
+                        </div>
+                        <!--end body panel -->
+                    </div>
+                    <!-- end wrapper -->
+                </div>
+            </div>
+            <!-- end bottom part OTHER BROWSERS -->
         </div>
-	</body>
+        <!-- end overall frame -->
+    </div>
+</body>
+
 </html>

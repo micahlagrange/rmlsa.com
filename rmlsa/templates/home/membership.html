@@ -1,16 +1,17 @@
 {% extends 'home/base.html' %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}Membership{% endblock %}
 
 {% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
 
 {% block content %}
-    <div class="contentheading">Membership Application</div>
-    <div style="padding-left:40px;">
-        <p>Please download the membership application form here.</p>
-        <a title="Membership Form" target="_blank"
-          href="{{ MEDIA_URL }}{{ membership_form.application_file }}"><h1>{{ membership_form.name }}</h1></a>
-    </div>
+<div class="contentheading">Membership Application</div>
+<div style="padding-left:40px;">
+    <p>Please download the membership application form here.</p>
+    <a title="Membership Form" target="_blank" href="{{ MEDIA_URL }}{{ membership_form.application_file }}">
+        <h1>{{ membership_form.name }}</h1>
+    </a>
+</div>
 {% endblock %}
