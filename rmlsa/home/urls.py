@@ -8,8 +8,8 @@ urlpatterns = [
     # Main page urls
     distill_path('', home.views.home, name='home'),
     # url(r'^race_results$', home.views.race_results, name='race_results'),
-    distill_path('driver_profile', driver_profile, name='driver_profile'),
-    distill_path('info', home.views.info, name='info'),
+    distill_path('driver_profile/', driver_profile, name='driver_profile'),
+    distill_path('info/', home.views.info, name='info'),
     distill_path('schedule', home.views.schedule, name='schedule'),
     # url(r'^getting_started$', home.views.getting_started, name='getting_started'),
     distill_path('info/rules', home.views.rules, name='rules'),
