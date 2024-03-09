@@ -16,14 +16,14 @@
     <br>
     <div class="contentheading">{{ rule.name }}</div>
     <div class="padding">
-      <a class="btn" href="{{ MEDIA_URL }}{{ rule.rules_file }}" download>Download {{ rule.name }}</a>
+      <a class="btn" href="{{ MEDIA_URL }}{{ rule.rules_file.url }}" download>Download {{ rule.name }}</a>
     </div>
     <br>
     <br>
     <br>
     <br>
     <div class="padding">
-      <embed src="{{ MEDIA_URL  }}{{ rule.rules_file }}" width="100%" height="800px" type='application/pdf'>
+      <embed src="{{ MEDIA_URL  }}{{ rule.rules_file.url }}" width="100%" height="800px" type='application/pdf'>
     </div>
 </div>
 <br>
