@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import include, path
+from django.urls import include, path
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import login as django_login, logout as django_logout

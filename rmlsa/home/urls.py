@@ -1,4 +1,4 @@
-from django.conf.urls import include
+from django.urls import include
 
 import home.views
 from profiles.views import driver_profile
