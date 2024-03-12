@@ -18,7 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 hostname = socket.gethostname()
 
 print('GOT HOSTNAME ' + hostname)
-if hostname == 'Micah-MBP':
+if os.environ.get('DEVMODE'):
+    from rmlsa.settings_dev import *
+elif hostname == 'Micah-MBP':
     from rmlsa.settings_dev import *
 elif hostname == 'ip-172-31-47-20':
     from rmlsa.settings_prod import *
