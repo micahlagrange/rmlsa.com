@@ -114,3 +114,5 @@ USE_TZ = True
 
 DISTILL_DIR = '/opt/rmlsa/build/'
 DISTILL_SKIP_ADMIN_DIRS = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
