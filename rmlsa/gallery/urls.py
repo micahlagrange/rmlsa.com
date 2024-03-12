@@ -25,10 +25,6 @@ urlpatterns = [
          views.delete_success,
          name='delete_success'),
     # Video archive
-    distill_path('videos/archive/<int:year>/',
-                 views.video_archive,
-                 name='videos',
-                 distill_file="videos/archive/{year}"),
     distill_path('videos/archive/index/',
                  views.video_archive_index,
                  name='video_archive_index'),
