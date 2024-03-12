@@ -192,21 +192,9 @@
                                             <li><span class="top"><a
                                                         href="{% url 'gallery:picture_archive_index' %}">RMLSA Archive
                                                         Index</a><span class="selector"></span></span></li>
-                                        </ul>
-                                    </li>
-
-                                    {% if videos == 'active' %}<li class="active">{% else %}
-                                    <li>{% endif %}
-                                        <span class="topdaddy"><a class="topdaddy"
-                                                href="{% url 'gallery:video_archive_index' %}">RMLSA Videos</a><span
-                                                class="selector"></span></span>
-                                        <ul>
-                                            <li><span class="top"><a href="{% url 'gallery:videos' 2014 %}">2014 RMLSA
-                                                        Videos</a><span class="selector"></span></span></li>
-                                            <li><span class="top"><a href="{% url 'gallery:videos' 2013 %}">2013 RMLSA
-                                                        Videos</a><span class="selector"></span></span></li>
-                                            <li><span class="top"><a href="{% url 'gallery:videos' 2012 %}">2012 Season
-                                                        in Review</a><span class="selector"></span></span></li>
+                                            <li><span class="top"><a
+                                                        href="{% url 'gallery:video_archive_index' %}">RMLSA Video
+                                                        Archive Index</a><span class="selector"></span></span></li>
                                         </ul>
                                     </li>
 
@@ -217,17 +205,22 @@
                                     </li>
 
 
-                                    <!--{% if user.is_authenticated %}
-                                            {% if contributor_menu == 'active' %}<li class="active">{% else %}<li>{% endif %}
-                                            <span class="topdaddy"><a class="topdaddy">Menu</a><span class="selector"></span></span>
-                                                <ul>
-                                                    <li><span class="top"><a href="{% url 'home:gallery_admin' %}">Gallery admin</a></span> </li>
-                                                    <li><span class="top"><a href="{% url 'logout' %}">Logout</a><span class="selector"></span></span> </li>
-                                                </ul>
-                                            </li>
-                                        {% else %}
-                                            <li><span class="topdaddy"><a href="{% url 'login' %}">Login</a><span class="selector"></span></span></li>
-                                        {% endif %}-->
+                                    {% if user.is_authenticated %}
+                                    {% if contributor_menu == 'active' %}<li class="active">{% else %}
+                                    <li>{% endif %}
+                                        <span class="topdaddy"><a class="topdaddy">Menu</a><span
+                                                class="selector"></span></span>
+                                        <ul>
+                                            <li><span class="top"><a href="{% url 'home:gallery_admin' %}">Gallery
+                                                        admin</a></span> </li>
+                                            <li><span class="top"><a href="{% url 'logout' %}">Logout</a><span
+                                                        class="selector"></span></span> </li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li><span class="topdaddy"><a href="{% url 'login' %}">Login</a><span
+                                                class="selector"></span></span></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
