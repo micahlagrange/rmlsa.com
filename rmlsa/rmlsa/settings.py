@@ -62,11 +62,10 @@ STATICFILES_FINDERS = (
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'rmlsa.duckdns.org',
-    'www.rmlsa.duckdns.org',
     'rmlsa.com',
     'www.rmlsa.com',
     '54.68.77.118',  # Elastic IP
+    'rmlsa.local'
 ]
 
 INSTALLED_APPS = (
