@@ -19,7 +19,7 @@ DATABASES = {
 MEDIA_ROOT = '/opt/rmlsa/media'
 
 # Static files
-STATICFILES_DIRS = ('/Users/lg_micaht/rmlsa.com/static/',)
+STATICFILES_DIRS = ('/opt/rmlsa/static/',)
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
