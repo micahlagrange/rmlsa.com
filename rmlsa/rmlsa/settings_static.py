@@ -4,10 +4,6 @@ import os
 DEBUG = TEMPLATE_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-
-with open('/etc/rmlsa.com.conf/db_password') as f:
-    PASSWORD = f.read().strip()
-
 # db, media, static dirs
 DATABASES = {
     'default': {

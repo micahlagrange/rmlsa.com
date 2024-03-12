@@ -15,11 +15,14 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if socket.gethostname() == 'Micahs-MacBook-Pro.local':
+hostname = socket.gethostname()
+
+print('GOT HOSTNAME ' + hostname)
+if hostname == 'Micah-MBP':
     from rmlsa.settings_dev import *
-elif socket.gethostname() == 'ip-172-31-47-20':
+elif hostname == 'ip-172-31-47-20':
     from rmlsa.settings_prod import *
-elif socket.gethostname() == 'piserv':
+elif hostname == 'piserv':
     from rmlsa.settings_test import *
 else:
     from rmlsa.settings_static import *
@@ -110,19 +113,5 @@ USE_L10N = True
 USE_TZ = True
 
 
-with open('/etc/rmlsa.com.conf/awskeys') as f:
-    creds = f.readlines()
-    aws_key_id = creds[0].strip()
-    secret_key = creds[1].strip()
-
 DISTILL_DIR = '/opt/rmlsa/build/'
-DISTILL_PUBLISH = {
-    'default': {
-        'ENGINE': 'django_distill.backends.amazon_s3',
-        'BUCKET': 'distill-staging',
-        'PUBLIC_URL': 'http://distill-staging.s3-website-us-east-1.amazonaws.com/',
-        'ACCESS_KEY_ID': aws_key_id,
-        'SECRET_ACCESS_KEY': secret_key
-    },
-}
 DISTILL_SKIP_ADMIN_DIRS = True

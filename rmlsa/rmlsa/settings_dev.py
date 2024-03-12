@@ -1,28 +1,27 @@
 __author__ = 'micah'
-import os
 
 DEBUG = TEMPLATE_DEBUG = True
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASE_DIR = '/usr/local/rmlsa.com/db'
+# db, media, static dirs
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DATABASE_DIR, 'rmlsa_db.sqlite3'),
-    },
+        'NAME': '/opt/rmlsa/sqlite/django.db',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': ''
+    }
 }
 
-#STATIC_ROOT = '/usr/local/rmlsa.com/static'
-MEDIA_ROOT = '/usr/local/rmlsa.com/media'
+# STATIC_ROOT = '/usr/local/rmlsa.com/static'
+MEDIA_ROOT = '/opt/rmlsa/media'
 
 # Static files
 STATICFILES_DIRS = ('/Users/lg_micaht/rmlsa.com/static/',)
-STATIC_URL='/static/'
-MEDIA_URL='/media/'
-
-SERVER_EMAIL = 'rmlsa.site@gmail.com'
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 LOGGING = {
     'version': 1,
@@ -34,15 +33,10 @@ LOGGING = {
         },
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'include_html': True,
-        },
         'file': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/usr/local/rmlsa.com/logging/rmlsa.log',
+            'filename': '/opt/rmlsa/logging/rmlsa.log',
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 10,
             'formatter': 'verbose',
@@ -51,12 +45,12 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'WARNING',
+            'level': 'INFO',
             'propagate': True,
         },
         'basic_logger': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'INFO',
         },
     }
 }

@@ -16,29 +16,23 @@
 </form>
 <p>You searched for "{{ query_string }}" and the results are listed below.</p>
 
-{% if found_drivers %}
+{% if found_items %}
+{% for nam,item_list in found_items.items %}
+{% if item_list|length > 0 %}
 <div class="search_results">
-    <h3>Drivers</h3>
+    <h3>{{ nam }}</h3>
     <div id="search_result">
+        {% for item in item_list %}
         <ul id="no_bullet">
-            {% for driver in found_drivers %}
-            <li><a href="{% url 'p_anchor' %}#{{driver.first_name.lower}}{{driver.last_name.lower}}">
-                    {{ driver.first_name.title }} {{ driver.last_name.title }}</a></li>
-            {% endfor %}
+            <li><a href="/#notimplemented">
+                    {{ item }}
+                </a></li>
         </ul>
+        {% endfor %}
     </div>
 </div>
 {% endif %}
-{% if found_pictures %}
-<div class="search_results">
-    <h3>Pictures</h3>
-    <div id="search_result">
-        <ul id="no_bullet">
-            {% for driver in found_pictures %}
-            <li><a href=""> </a></li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+{% endfor %}
 {% endif %}
+
 {% endblock%}

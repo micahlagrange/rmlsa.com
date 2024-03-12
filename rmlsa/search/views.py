@@ -1,3 +1,4 @@
+import django
 from django.shortcuts import render
 
 # Create your views here.
@@ -18,14 +19,14 @@ logger = logging.getLogger('basic_logger')
 QUERY = "searchword"
 
 MODEL_MAP = {
-    "driver": {"model": profiles.models.Driver, "fields": ["first_name", "last_name"]},
-    "profile": {"model": profiles.models.Profile, "fields": ["email", ]},
-    "sponsor": {"model": profiles.models.Sponsor, "fields": ["name", "url", ]},
-    "sprintcar": {"model": profiles.models.SprintCar, "fields": ["brand", "number", ]},
-    "event": {"model": events.models.Event, "fields": ["venue", "winner", "car_type", "event_type", ]},
-    "city": {"model": events.models.City, "fields": ["name", ]},
-    "gallery_image": {"model": gallery.models.GalleryImage, "fields": ["name", "caption", ]},
-    "welcome_message": {"model": home.models.WelcomeMessage, "fields": ["text", ]},
+    "Drivers": {"model": profiles.models.Driver, "fields": ["first_name", "last_name"]},
+    "Profiles": {"model": profiles.models.Profile, "fields": ["email", ]},
+    "Sponsors": {"model": profiles.models.Sponsor, "fields": ["name", "url", ]},
+    "Sprintcars": {"model": profiles.models.SprintCar, "fields": ["car_info", "number", ]},
+    "Events": {"model": events.models.Event, "fields": ["venue", "winner", "car_type", "event_type", ]},
+    "Citys": {"model": events.models.City, "fields": ["name", ]},
+    "Gallery": {"model": gallery.models.GalleryImage, "fields": ["name", "caption", ]},
+    "Messages": {"model": home.models.WelcomeMessage, "fields": ["text", ]},
 }
 
 
@@ -73,20 +74,34 @@ def generic_search(request, model, fields, query_param="q"):
 
 
 def search(request):
-    found_drivers = []
+    found_items = {}
 
     for name, config in MODEL_MAP.items():
-        if name == "driver":
-            try:
-                results = generic_search(request, config["model"], config["fields"], QUERY)
-                found_drivers.extend(results)
-            except TypeError as e:
-                logger.error('One or more fields set up to be searched is not valid for text. Model: {}'
-                             'Fields: {} Error: {}'.format(config["model"], config["fields"], e))
-                continue
+        if name not in found_items:
+            found_items[name] = []
+        try:
+            results = generic_search(
+                request, config["model"], config["fields"], QUERY)
+            found_items[name].extend(prettify(name, results))
+        except TypeError as e:
+            logger.error('One or more fields set up to be searched is not valid for text. Model: {}'
+                         'Fields: {} Error: {}'.format(config["model"], config["fields"], e))
+            continue
+        except django.core.exceptions.FieldError:
+            continue
 
     return render(request, 'search/search_results.html', {'random_image': home.views.get_random_image(),
                                                           'partners': home.views.get_partner_links(),
-                                                          'found_drivers': found_drivers,
+                                                          'found_items': found_items,
                                                           'query_string': request.GET.get(QUERY, ""),
                                                           'sidebar_search_off': '1'})
+
+
+def prettify(kinda, results):
+    res = []
+    for result in results:
+        text = ""
+        for field in MODEL_MAP[kinda]["fields"]:
+            text += field + ": " + (getattr(result, field)) + "\n\n\n"
+        res.append(text)
+    return res

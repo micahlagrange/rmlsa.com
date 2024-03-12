@@ -76,7 +76,7 @@ def gallery_pictures(request):
 
 
 def video_archive(request, year):
-    if year in ('2012', '2013', '2014'):
+    if year in (2012, 2013, 2014):
         return render(request, 'gallery/video_archive/{}_videos.html'.format(year),
                       {'videos': 'active', 'random_image': home.views.get_random_image(),
                        'partners': home.views.get_partner_links()})
@@ -91,7 +91,7 @@ def video_archive_index(request):
 
 
 def picture_archive(request, year):
-    if year in ('2011', '2012', '2013'):  # '2007', '2008', '2009', '2010'
+    if year in (2011, 2012, 2013):
         return render(request, 'gallery/picture_archive/{} RMLSA Gallery.html'.format(year),
                       {'gallery': 'active', 'random_image': home.views.get_random_image(),
                        'partners': home.views.get_partner_links()})
