@@ -103,14 +103,10 @@ MIDDLEWARE = (
 
 SECURE_HSTS_SECONDS = 0
 SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 
 ROOT_URLCONF = 'rmlsa.urls'
 
 WSGI_APPLICATION = 'rmlsa.wsgi.application'
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'America/Denver'
