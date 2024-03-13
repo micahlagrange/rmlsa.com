@@ -1,8 +1,5 @@
 __author__ = 'micah'
 
-from rmlsa.rmlsa.settings import CSRF_COOKIE_SECURE
-
-
 DEBUG = TEMPLATE_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 

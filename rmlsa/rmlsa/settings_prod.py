@@ -1,5 +1,4 @@
 __author__ = 'micah'
-import os
 
 DEBUG = TEMPLATE_DEBUG = False
 
@@ -10,13 +9,13 @@ with open('/etc/rmlsa.com.conf/db_password') as f:
 # db, media, static dirs
 DATABASES = {
     'default': {
-      'NAME': 'django_db',
-      'ENGINE': 'mysql.connector.django',
-      'USER': 'root',
-      'PASSWORD': PASSWORD,
-      'OPTIONS': {
-        'autocommit': True,
-      },
+        'NAME': 'django_db',
+        'ENGINE': 'mysql.connector.django',
+        'USER': 'root',
+        'PASSWORD': PASSWORD,
+        'OPTIONS': {
+            'autocommit': True,
+        },
     }
 }
 
