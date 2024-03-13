@@ -1,5 +1,6 @@
 __author__ = 'micah'
-import os
+
+print("LOADING STATIC SETTINGS")
 
 DEBUG = TEMPLATE_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True

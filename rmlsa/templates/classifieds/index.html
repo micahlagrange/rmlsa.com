@@ -6,25 +6,25 @@
 {% block inset_graphic %}<div class="smaller_inset"></div>{% endblock %}
 
 {% block content %}
-    <div class="contentheading">RMLSA Classified Ads</div>
-    <div id="ad-list">
-    {% if ads %}
-        {% for ad in ads %}
+<div class="contentheading">RMLSA Classified Ads</div>
+<div id="ad-list">
+	{% if ads %}
+	{% for ad in ads %}
 	<div class="ad-box">
 
-                <div class="ad-box-desc">
+		<div class="ad-box-desc">
 			<a href="{% url 'classifieds:details' ad.id %}">
 				{{ ad.name }}
 			</a>-- ${{ ad.price|intcomma }}<br>
-		        <i>"{{ ad.description|truncatechars:30 }}"</i>	
-                </div>
+			<i>"{{ ad.description|truncatechars:30 }}"</i>
+		</div>
 
 		{% with ad.adimage_set.all as images %}
-		    {% if images %}
-		        <a href="{% url 'classifieds:details' ad.id %}">
-		            <img class="ad-thumb" src="{{ MEDIA_URL }}{{ images.0.thumbnail }}">
-			</a>
-		    {% endif %}
+		{% if images %}
+		<a href="{% url 'classifieds:details' ad.id %}">
+			<img class="ad-thumb" src="{{ MEDIA_URL }}{{ images.0.thumbnail }}">
+		</a>
+		{% endif %}
 		{% endwith %}
 
 		<p><i>Posted on {{ ad.date }}</i></p>
@@ -32,9 +32,9 @@
 	</div>
 	<hr>
 	-------------------------------
-        {% endfor %}
-    {% else %}
-        <p>No ads at this time.</p>
-    {% endif %}
-    </div>
+	{% endfor %}
+	{% else %}
+	<p>No ads at this time.</p>
+	{% endif %}
+</div>
 {% endblock %}

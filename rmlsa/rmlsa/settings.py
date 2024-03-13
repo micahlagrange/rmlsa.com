@@ -18,7 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 hostname = socket.gethostname()
 
 print('GOT HOSTNAME ' + hostname)
-if hostname == 'Micah-MBP':
+if os.environ.get('DEVMODE'):
+    from rmlsa.settings_dev import *
+elif hostname == 'Micah-MBP':
     from rmlsa.settings_dev import *
 elif hostname == 'ip-172-31-47-20':
     from rmlsa.settings_prod import *
@@ -42,7 +44,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         "DIRS": [BASE_DIR / "templates"],
-        'APP_DIRS': False,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 # 'django.template.context_processors.debug',
@@ -62,11 +64,10 @@ STATICFILES_FINDERS = (
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'rmlsa.duckdns.org',
-    'www.rmlsa.duckdns.org',
     'rmlsa.com',
     'www.rmlsa.com',
     '54.68.77.118',  # Elastic IP
+    'rmlsa.local'
 ]
 
 INSTALLED_APPS = (
@@ -92,19 +93,19 @@ if socket.gethostname() == 'ip-172-31-47-20':
 
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
+
+SECURE_HSTS_SECONDS = 0
 
 ROOT_URLCONF = 'rmlsa.urls'
 
 WSGI_APPLICATION = 'rmlsa.wsgi.application'
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'America/Denver'
@@ -115,3 +116,5 @@ USE_TZ = True
 
 DISTILL_DIR = '/opt/rmlsa/build/'
 DISTILL_SKIP_ADMIN_DIRS = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

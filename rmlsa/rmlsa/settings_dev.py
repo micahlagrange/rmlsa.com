@@ -1,5 +1,7 @@
 __author__ = 'micah'
 
+print("LOADING DEV SETTINGS")
+
 DEBUG = TEMPLATE_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
@@ -19,7 +21,7 @@ DATABASES = {
 MEDIA_ROOT = '/opt/rmlsa/media'
 
 # Static files
-STATICFILES_DIRS = ('/Users/lg_micaht/rmlsa.com/static/',)
+STATICFILES_DIRS = ('/opt/rmlsa/static/',)
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
@@ -54,3 +56,5 @@ LOGGING = {
         },
     }
 }
+
+CSRF_COOKIE_SECURE = False

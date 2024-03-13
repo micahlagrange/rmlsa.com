@@ -11,6 +11,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.paginator import Paginator
 
 from home.models import *
 from events.models import *
@@ -74,11 +75,17 @@ def home(request):
             # If there is at least 1 winner, add the winner column in html (see template)
             winners = True
 
+    articles = get_all_news_articles()
+    paginator = Paginator(articles, 5)
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     welcome_message = WelcomeMessage.objects.latest('date_modified')
     return render(request, 'home/home.html', {'home': 'active', 'random_image': get_random_image(),
                                               'welcome_message': welcome_message, 'partners': get_partner_links(),
                                               'rmlsa_events': upcoming_events, 'past_events': past_events,
-                                              'winners': winners, 'news_articles': get_all_news_articles()})
+                                              'winners': winners, 'news_articles': page_obj})
 
 
 def race_results(request):
