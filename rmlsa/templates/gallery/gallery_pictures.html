@@ -6,10 +6,7 @@
 
 {% block content %}
 <div class="contentheading">Gallery pictures</div>
-{% if perms.gallery.upload_image %}
-<a class="btn" href="{% url 'gallery:upload_image' %}">Click here to upload an image</a>
 
-{% endif %}
 {% if images %}
 <div style="overflow:hidden;"></div>
 {% for image in images %}
@@ -19,9 +16,6 @@
     <img id="gallery_img" src="{{ MEDIA_URL }}{{ image.image.url }}">
     <div style="padding:10px; width:70%;">
         {{ image.caption }}
-        {% if perms.gallery.delete_image %}
-        <a class="delbtn" href="{% url 'gallery:delete' image.id %}">x</a>
-        {% endif %}
     </div>
 </div>
 
