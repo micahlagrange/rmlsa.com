@@ -6,7 +6,7 @@
     <title>
         RMLSA - {% block title %}Home{% endblock %}
     </title>
-    <meta name="Framework" content="Django 1.8 by https://www.djangoproject.com" />
+    <meta name="Framework" content="Django 4.2 by https://www.djangoproject.com and distill static site generator!" />
     <meta name="description"
         content="RMLSA, Rocky Mountain Lightning Sprint Association the premier mini-sprint association in the rocky mountain region." />
     <meta name="keywords"
@@ -203,24 +203,6 @@
                                         <span class="topdaddy"><a href="{% url 'home:membership_form' %}">Membership
                                                 Application</a><span class="selector"></span></span>
                                     </li>
-
-
-                                    {% if user.is_authenticated %}
-                                    {% if contributor_menu == 'active' %}<li class="active">{% else %}
-                                    <li>{% endif %}
-                                        <span class="topdaddy"><a class="topdaddy">Menu</a><span
-                                                class="selector"></span></span>
-                                        <ul>
-                                            <li><span class="top"><a href="{% url 'home:gallery_admin' %}">Gallery
-                                                        admin</a></span> </li>
-                                            <li><span class="top"><a href="{% url 'logout' %}">Logout</a><span
-                                                        class="selector"></span></span> </li>
-                                        </ul>
-                                    </li>
-                                    {% else %}
-                                    <li><span class="topdaddy"><a href="{% url 'login' %}">Login</a><span
-                                                class="selector"></span></span></li>
-                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
@@ -454,12 +436,6 @@
                                                                         </div>
                                                                     </td>
                                                                     <td>
-                                                                        {% if user.is_authenticated %}
-                                                                        <div style="float:left;">
-                                                                            <a class="delbtn"
-                                                                                href="{% url 'home:delete_partner' p.partner.id %}">x</a>
-                                                                        </div>
-                                                                        {% endif %}
                                                                     </td>
                                                                 </tr>
                                                                 {% endfor %}
