@@ -83,7 +83,7 @@
                     {% endif %}
 
                     <span class="current">
-                        Page {{ news_articles.number }} of {{ page_obj.paginator.num_pages }}.
+                        Page {{ news_articles.number }} of {{ news_articles.paginator.num_pages }}.
                     </span>
 
                     {% if news_articles.has_next %}
