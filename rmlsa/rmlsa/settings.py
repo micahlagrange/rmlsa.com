@@ -101,6 +101,8 @@ MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+SECURE_HSTS_SECONDS = 0
+
 ROOT_URLCONF = 'rmlsa.urls'
 
 WSGI_APPLICATION = 'rmlsa.wsgi.application'
