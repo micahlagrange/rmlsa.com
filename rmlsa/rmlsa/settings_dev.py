@@ -1,5 +1,7 @@
 __author__ = 'micah'
 
+print("LOADING DEV SETTINGS")
+
 DEBUG = TEMPLATE_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 

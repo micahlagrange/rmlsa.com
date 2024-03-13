@@ -2,6 +2,7 @@ __author__ = 'micah'
 
 DEBUG = TEMPLATE_DEBUG = False
 
+print("LOADING PROD SETTINGS")
 
 with open('/etc/rmlsa.com.conf/db_password') as f:
     PASSWORD = f.read().strip()

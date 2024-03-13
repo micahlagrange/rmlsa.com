@@ -1,6 +1,8 @@
 __author__ = 'micah'
 import os
 
+print("LOADING TEST SETTINGS")
+
 DEBUG = TEMPLATE_DEBUG = True
 
 # Jenkins should just use the project folder
