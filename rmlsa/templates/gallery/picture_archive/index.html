@@ -6,10 +6,10 @@
 
 {% block content %}
 
-    <div class="contentheading">RMLSA Gallery Index</div>
-    <ul id="no_bullet">
-        <li><a href="{% url 'gallery:picture_archive' 2013 %}">2013 RMLSA Gallery Archive</a></li>
-        <li><a href="{% url 'gallery:picture_archive' 2012 %}">2012 RMLSA Gallery Archive</a></li>
-        <li><a href="{% url 'gallery:picture_archive' 2011 %}">2011 RMLSA Gallery Archive</a></li>
-    </ul>
+<div class="contentheading">RMLSA Gallery Index</div>
+<ul id="no_bullet">
+    <li><a href="{% url 'gallery:picture_archive_2013' %}">2013 RMLSA Gallery Archive</a></li>
+    <li><a href="{% url 'gallery:picture_archive_2012' %}">2012 RMLSA Gallery Archive</a></li>
+    <li><a href="{% url 'gallery:picture_archive_2011' %}">2011 RMLSA Gallery Archive</a></li>
+</ul>
 {% endblock %}
