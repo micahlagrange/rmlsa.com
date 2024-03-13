@@ -85,7 +85,7 @@ def home(request):
     return render(request, 'home/home.html', {'home': 'active', 'random_image': get_random_image(),
                                               'welcome_message': welcome_message, 'partners': get_partner_links(),
                                               'rmlsa_events': upcoming_events, 'past_events': past_events,
-                                              'winners': winners, 'news_articles': articles, 'page_obj': page_obj})
+                                              'winners': winners, 'news_articles': page_obj})
 
 
 def race_results(request):
