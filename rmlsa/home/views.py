@@ -76,8 +76,9 @@ def home(request):
             winners = True
 
     articles = get_all_news_articles()
-    paginator = Paginator(articles, 2)
 
+    # pagination is only 3 lines of code
+    paginator = Paginator(articles, 2)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
