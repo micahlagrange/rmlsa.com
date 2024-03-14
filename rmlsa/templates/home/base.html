@@ -374,7 +374,7 @@
                                                         <div class="accent-right"></div>
                                                     </div>
 
-                                                    {% if not sidebar_search_off %}
+                                                    {% if sidebar_search == True %}
                                                     <div class="moduletable-hilite1">
                                                         <h3>Search</h3>
                                                         <form action="{% url 'search:search' %}" method="get">

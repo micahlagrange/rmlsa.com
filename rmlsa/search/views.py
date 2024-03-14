@@ -94,7 +94,7 @@ def search(request):
                                                           'partners': home.views.get_partner_links(),
                                                           'found_items': found_items,
                                                           'query_string': request.GET.get(QUERY, ""),
-                                                          'sidebar_search_off': '1'})
+                                                          'sidebar_search': True})
 
 
 def prettify(kinda, results):
