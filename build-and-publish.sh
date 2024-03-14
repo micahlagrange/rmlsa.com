@@ -10,3 +10,4 @@ cd rmlsa
 # Sync with s3
 ../scripts/distill-publish.sh
 
+aws cloudfront create-invalidation --distribution-id $(cat /etc/rmlsa.com.conf/cloudfront_distrib) --paths '/*'
