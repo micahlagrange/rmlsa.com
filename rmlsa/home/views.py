@@ -18,11 +18,6 @@ from events.models import *
 from gallery.models import *
 from news.models import *
 
-# Stupid django query stuff:
-
-import operator
-from django.db.models import Q
-
 
 def get_random_image():
     try:
@@ -60,6 +55,8 @@ def logout(request):
 
 
 def home(request):
+    latest_banner = BannerImage.objects.last
+
     winners = False
     datetimestamp = datetime.now()
 
@@ -86,7 +83,8 @@ def home(request):
     return render(request, 'home/home.html', {'home': 'active', 'random_image': get_random_image(),
                                               'welcome_message': welcome_message, 'partners': get_partner_links(),
                                               'rmlsa_events': upcoming_events, 'past_events': past_events,
-                                              'winners': winners, 'news_articles': page_obj})
+                                              'winners': winners, 'news_articles': page_obj,
+                                              'banner': latest_banner})
 
 
 def race_results(request):

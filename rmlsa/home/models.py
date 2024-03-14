@@ -76,3 +76,8 @@ class RulesFile(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
+
+
+class BannerImage(models.Model):
+    name = models.CharField(max_length=80, null=False, default='banner')
+    image = models.ImageField(upload_to='banners', null=True, blank=False)
