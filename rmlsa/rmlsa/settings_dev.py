@@ -17,11 +17,10 @@ DATABASES = {
     }
 }
 
-# STATIC_ROOT = '/usr/local/rmlsa.com/static'
-MEDIA_ROOT = '/opt/rmlsa/media'
 
-# Static files
-STATICFILES_DIRS = ('/opt/rmlsa/static/',)
+# Static files dirs setting requires not having static root
+STATICFILES_DIRS = ('/opt/rmlsa/static/', '../static/')
+MEDIA_ROOT = '/opt/rmlsa/media'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
