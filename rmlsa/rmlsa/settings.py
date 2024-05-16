@@ -62,7 +62,7 @@ STATICFILES_FINDERS = (
 )
 
 ALLOWED_HOSTS = [
-    'admin.rmlsa.com'
+    'admin.rmlsa.com',
     'localhost',
     '127.0.0.1',
     'rmlsa.local'
