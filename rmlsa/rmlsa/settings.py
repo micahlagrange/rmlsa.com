@@ -62,11 +62,9 @@ STATICFILES_FINDERS = (
 )
 
 ALLOWED_HOSTS = [
+    'admin.rmlsa.com'
     'localhost',
     '127.0.0.1',
-    'rmlsa.com',
-    'www.rmlsa.com',
-    '54.68.77.118',  # Elastic IP
     'rmlsa.local'
 ]
 
