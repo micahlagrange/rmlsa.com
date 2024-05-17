@@ -20,6 +20,8 @@ hostname = socket.gethostname()
 print('GOT HOSTNAME ' + hostname)
 if os.environ.get('DEVMODE'):
     from rmlsa.settings_dev import *
+elif os.environ.get('ADMIN_SERVER'):
+    from rmlsa.settings_prod import *
 elif hostname == 'Micah-MBP':
     from rmlsa.settings_dev import *
 elif hostname == 'ip-172-31-47-20':
