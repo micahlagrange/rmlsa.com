@@ -1,32 +1,28 @@
 __author__ = 'micah'
 
-DEBUG = TEMPLATE_DEBUG = False
-
 print("LOADING PROD SETTINGS")
 
-with open('/etc/rmlsa.com.conf/db_password') as f:
-    PASSWORD = f.read().strip()
+DEBUG = TEMPLATE_DEBUG = False
+
 
 # db, media, static dirs
 DATABASES = {
     'default': {
-        'NAME': 'django_db',
-        'ENGINE': 'mysql.connector.django',
-        'USER': 'root',
-        'PASSWORD': PASSWORD,
-        'OPTIONS': {
-            'autocommit': True,
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/opt/rmlsa/sqlite/django.db',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': ''
     }
 }
-
-MEDIA_ROOT = '/opt/rmlsa/media'
 
 # Static files
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = '/opt/rmlsa/static'
+MEDIA_ROOT = '/opt/rmlsa/media'
 
 SERVER_EMAIL = 'rmlsa.site@gmail.com'
 
@@ -40,14 +36,8 @@ LOGGING = {
         },
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'include_html': True,
-            'email_backend': 'django.core.mail.backends.smtp.EmailBackend',
-        },
         'file': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': '/opt/rmlsa/logging/rmlsa.log',
             'maxBytes': 1024 * 1024 * 5,
@@ -57,13 +47,13 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['file', 'mail_admins'],
-            'level': 'WARNING',
+            'handlers': ['file'],
+            'level': 'INFO',
             'propagate': True,
         },
         'basic_logger': {
-            'handlers': ['file', 'mail_admins'],
-            'level': 'DEBUG',
+            'handlers': ['file'],
+            'level': 'INFO',
         },
     }
 }
@@ -71,3 +61,4 @@ LOGGING = {
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = ['https://admin.rmlsa.com']
 SESSION_COOKIE_SECURE = True
+CSRF_USE_SESSIONS = True
