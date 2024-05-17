@@ -20,13 +20,13 @@ DATABASES = {
     }
 }
 
-MEDIA_ROOT = '/export/home/projects/media'
+MEDIA_ROOT = '/opt/rmlsa/media'
 
 # Static files
-STATIC_URL = '//rmlsa.com/static/'
-MEDIA_URL = '//rmlsa.com/media/'
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
-STATIC_ROOT = '/export/home/projects/static'
+STATIC_ROOT = '/opt/rmlsa/static'
 
 SERVER_EMAIL = 'rmlsa.site@gmail.com'
 
@@ -49,7 +49,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/export/home/projects/logging/rmlsa.log',
+            'filename': '/opt/rmlsa/logging/rmlsa.log',
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 10,
             'formatter': 'verbose',
