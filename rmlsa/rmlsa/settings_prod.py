@@ -69,4 +69,5 @@ LOGGING = {
 }
 
 CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://admin.rmlsa.com']
 SESSION_COOKIE_SECURE = True
