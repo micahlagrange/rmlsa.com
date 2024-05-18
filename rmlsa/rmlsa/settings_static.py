@@ -1,5 +1,8 @@
 __author__ = 'micah'
 
+import os
+
+
 print("LOADING STATIC SETTINGS")
 
 DEBUG = TEMPLATE_DEBUG = True
@@ -16,7 +19,6 @@ DATABASES = {
         'PORT': ''
     }
 }
-
 
 # Static files
 STATIC_URL = '/static/'
