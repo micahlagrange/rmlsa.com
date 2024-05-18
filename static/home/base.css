@@ -1,0 +1,19 @@
+.banner {
+    /* Set the dimensions of your banner */
+    width: 900px;
+    height: 300px;
+    overflow: hidden;
+    /* Hide the parts of the image that don't fit */
+    position: relative;
+    /* Position the div relative to its normal position */
+}
+
+.banner img {
+    /* Scale and position the image */
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    /* Make the image as wide as the container */
+    height: 100%;
+    /* Make the image as tall as the container */
+}

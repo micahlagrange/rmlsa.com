@@ -19,6 +19,8 @@
     <script type="text/javascript" src="{% static 'home/components/com_easygallery/slimbox/js/slimbox.js' %}"></script>
     <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" />
     <meta charset="UTF-8">
+    <!-- Home django stylesheet -->
+    <link rel="stylesheet" href="{% static 'home/base.css' %}" type="text/css" />
 
     <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/rokmoomenu.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static 'home/templates/rt_dimensions/css/template_css.css' %}" type="text/css" />
@@ -210,10 +212,9 @@
                         <!-- begin inset -->
                         {% if banner %}
                         {% block inset_graphic %}
-                        <div id="inset">
+                        <div class="banner" id="inset">
                             <img src="{{ MEDIA_URL }}{{ banner.image.url }}" alt="{{ banner.name }}"
-                                style="margin: 5px; width: 900px; height: 260px" title="{{ banner.name }}" height="260"
-                                width="900" />
+                                title="{{ banner.name }}" />
                         </div>
                         {% endblock %}
                         {% endif %}

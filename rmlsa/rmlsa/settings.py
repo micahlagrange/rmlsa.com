@@ -37,7 +37,9 @@ LOGIN_REDIRECT_URL = '/edit/index/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-with open('/etc/rmlsa.com.conf/secretkey') as f:
+SECRET_KEY_DIR = '/etc/rmlsa.com.conf/secretkey' if not platform.system(
+) == 'Windows' else os.getenv('APPDATA') + '/rmlsa/secretkey'
+with open(SECRET_KEY_DIR) as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
