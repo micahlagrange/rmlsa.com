@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 import socket
 from pathlib import Path
+import platform
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
