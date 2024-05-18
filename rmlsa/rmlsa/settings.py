@@ -31,7 +31,6 @@ elif hostname == 'piserv':
 else:
     from rmlsa.settings_static import *
 
-
 LOGIN_REDIRECT_URL = '/edit/index/'
 
 # Quick-start development settings - unsuitable for production

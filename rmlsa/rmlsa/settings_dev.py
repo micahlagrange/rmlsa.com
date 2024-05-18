@@ -6,7 +6,7 @@ import platform
 print("LOADING DEV SETTINGS")
 
 DEBUG = TEMPLATE_DEBUG = True
-DEBUG_PROPAGATE_EXCEPTIONS = True
+DEBUG_PROPAGATE_EXCEPTIONS = False
 
 
 def is_windows():

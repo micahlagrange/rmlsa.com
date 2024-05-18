@@ -5,42 +5,35 @@
 {% block content %}
 <div id="component">
     <div class="padding">
-        <div class="moduletable">
+        <div class="moduletable lil-page-container">
             <h3>Welcome to the RMLSA</h3>
-            <p align="justify">
-                {{ welcome_message.text|safe }}
-            </p>
-            <!--<p align="center">****************************************************************</p>-->
-            <!--<p align="center">Check out our <a href="/classified/url/here/"><b><i>classified</i></b></a>-->
-            <!--for cars and parts to get started or upgrade.-->
-            <!--</p>-->
-            <!--<p align="center">*******************************************************</p>-->
+            <p> {{ welcome_message.text|linebreaks }} </p>
 
             {% comment %}RMLSA events{% endcomment %}
 
             <div class="moduletable" style="margin-top: 50px; margin-bottom: 100px">
                 {% if past_events %}
                 <h3>Past RMLSA Events</h3>
-                <table id="eventtable" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#666666">
+                <table id="eventtable" class="events-table" width="100%" cellspacing="1" cellpadding="3">
                     <tr>
-                        <th bgcolor="black">Date</th>
-                        <th bgcolor="black">Title</th>
-                        <th bgcolor="black">Track</th>
-                        <th bgcolor="black">City</th>
-                        <th bgcolor="black">Category</th>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Track</th>
+                        <th>City</th>
+                        <th>Category</th>
                         {% if winners %}
-                        <th bgcolor="black">Winner</th>
+                        <th>Winner</th>
                         {% endif %}
                     </tr>
                     {% for event in past_events reversed %}
                     <tr>
-                        <td bgcolor="#333333">{{ event.date }}</td>
-                        <td bgcolor="#333333">{{ event }}</td>
-                        <td bgcolor="#333333">{{ event.venue }}</td>
-                        <td bgcolor="#333333">{{ event.venue.city }}</td>
-                        <td bgcolor="#333333">{{ event.car_type|default:"" }}</td>
+                        <td>{{ event.date }}</td>
+                        <td>{{ event }}</td>
+                        <td>{{ event.venue }}</td>
+                        <td>{{ event.venue.city }}</td>
+                        <td>{{ event.car_type|default:"" }}</td>
                         {% if winners %}
-                        <td id="winners" bgcolor="#333333">{{ event.winner|default:"" }}</td>
+                        <td id="winners">{{ event.winner|default:"" }}</td>
                         {% endif %}
                     </tr>
                     {% endfor %}
@@ -49,21 +42,21 @@
 
                 {% if rmlsa_events %}
                 <h3>Upcoming RMLSA Events</h3>
-                <table id="eventtable" width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#666666">
+                <table id="eventtable" class="events-table" width="100%" cellspacing="1" cellpadding="3">
                     <tr>
-                        <th bgcolor="black">Date</th>
-                        <th bgcolor="black">Title</th>
-                        <th bgcolor="black">Track</th>
-                        <th bgcolor="black">City</th>
-                        <th bgcolor="black">Category</th>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Track</th>
+                        <th>City</th>
+                        <th>Category</th>
                     </tr>
                     {% for event in rmlsa_events %}
                     <tr>
-                        <td bgcolor="#333333">{{ event.date }}</td>
-                        <td bgcolor="#333333">{{ event }}</td>
-                        <td bgcolor="#333333">{{ event.venue }}</td>
-                        <td bgcolor="#333333">{{ event.venue.city }}</td>
-                        <td bgcolor="#333333">{{ event.car_type|default:"" }}</td>
+                        <td>{{ event.date }}</td>
+                        <td>{{ event }}</td>
+                        <td>{{ event.venue }}</td>
+                        <td>{{ event.venue.city }}</td>
+                        <td>{{ event.car_type|default:"" }}</td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -73,43 +66,30 @@
             </div>
 
             {% if news_articles %}
-            <!-- paginator -->
+            <div class="contentheading" id="article-content"> Articles </div>
 
-            <div class="pagination"
-                style="margin-top: 50px; padding: 10px; background-color: #191919; border-radius: 1em;">
-                <span class="step-links">
-                    {% if news_articles.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ news_articles.previous_page_number }}">previous</a>
-                    {% endif %}
-
-                    <span class="current">
-                        Page {{ news_articles.number }} of {{ news_articles.paginator.num_pages }}.
-                    </span>
-
-                    {% if news_articles.has_next %}
-                    <a href="?page={{ news_articles.next_page_number }}">next</a>
-                    <a href="?page={{ news_articles.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
+            <!-- top paginator -->
+            {% include 'home/pagination.html' %}
 
             {% for a in news_articles %}
-            <div class="moduletable" id="news_article">
+            <div class="article-box">
                 <p style="float: right;"><i>Published on {{ a.pub_date }}</i></p>
-                <h1 class="article-title">
-                    {{ a.title }}
-                </h1>
+                <h2> {{ a.title }} </h2>
                 {% if a.subtitle %}<h4>{{ a.subtitle }}</h4>{% endif %}
 
-                {% with a.articleimage_set.all|first as image %}
-                {% if image %}
-                <img id="article_img" src="{{ MEDIA_URL }}{{ image.image.url }}" title="{{ image.name }}">
-                {% endif %}
-                {% endwith %}
+                <div style="padding: 1em 1em 1em 0;">
 
-                <div style="padding: 1em 1em 1em 0;">{{ a.text|linebreaks }}</div>
+                    {% with a.articleimage_set.all|first as image %}
+                    {% if image %}
+                    <img class="article-image" src="{{ MEDIA_URL }}{{ image.image.url }}" title="{{ image.name }}">
+                    {% endif %}
+                    {% endwith %}
 
+                    <!-- Article text contents -->
+                    <p class="article-text-content">{{ a.text|linebreaks }}</p>
+                    <br clear="left" /> <!-- This will help manage the text wrapping -->
+
+                </div>
 
                 {% with a.articleurl_set.all as urls %}
                 {% if urls %}
@@ -138,25 +118,8 @@
             {% else %}
             {% endif %}
 
-            <div class="pagination"
-                style="margin-top: 50px; padding: 10px; background-color: #191919; border-radius: 1em;">
-                <span class="step-links">
-                    {% if news_articles.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ news_articles.previous_page_number }}">previous</a>
-                    {% endif %}
-
-                    <span class="current">
-                        Page {{ news_articles.number }} of {{ news_articles.paginator.num_pages }}.
-                    </span>
-
-                    {% if news_articles.has_next %}
-                    <a href="?page={{ news_articles.next_page_number }}">next</a>
-                    <a href="?page={{ news_articles.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
-
+            <!-- bottom page buttons -->
+            {% include 'home/pagination.html' %}
         </div>
     </div>
 </div>

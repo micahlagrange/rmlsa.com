@@ -1,3 +1,11 @@
+/* fonts */
+@font-face {
+    font-family: 'Demogilkons';
+    src: url('/static/home/Demogilkons-lx9wy.otf') format('opentype');
+}
+
+
+/* banner stuff */
 .banner {
     /* Set the dimensions of your banner */
     width: 900px;
@@ -16,4 +24,95 @@
     /* Make the image as wide as the container */
     height: 100%;
     /* Make the image as tall as the container */
+}
+
+
+/* pagination
+station */
+
+.pagination {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: black;
+}
+
+.pagination>div {
+    flex-grow: 1;
+    text-align: center;
+    line-height: 75px;
+    font-size: 16px;
+    font-family: Century Gothic, Helvetica, sans-serif;
+}
+
+.page-btn {
+    color: white !important;
+    background-color: #406fa1;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.page-btn-inactive {
+    color: #999999 !important;
+    background-color: #333333;
+}
+
+.page-btn:hover {
+    background-color: #a2c5d1;
+    color: #835c7e !important;
+    text-decoration: none;
+    /* Changed to white for better contrast */
+}
+
+.page-btn-inactive:hover {}
+
+
+/* articles */
+
+.article-box {
+    overflow: auto;
+    border-radius: 1em;
+    background-color: #191919;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.article-image {
+    max-width: 40%;
+    /* Adjust as needed */
+    float: left;
+    /* This will make the text wrap around the image */
+    margin: 5px;
+    /* This adds space around the image */
+}
+
+.article-text-content {
+    /* This will contain the text within the div */
+    padding: 1em 1em 1em 0;
+}
+
+.article-box h2 {
+    font-family: 'Demogilkons', fallback, sans-serif;
+    padding-left: 2px;
+}
+
+/* events table */
+
+.events-table {
+    background-color: black;
+    color: white;
+    font-size: 100%;
+    white-space: nowrap;
+    border: 0;
+    border-collapse: collapse;
+    border-color: #929292;
+}
+
+.events-table tr {
+    border: 1px solid #929292;
+}
+
+.events-table td {
+    border: 1px solid #929292;
+    background-color: #333333;
 }
