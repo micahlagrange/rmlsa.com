@@ -112,8 +112,14 @@ def get_articles_page(page=1):
     return paginator.get_page(page)
 
 
-def distill_get_articles(page=1):
-    return Paginator(Article.objects.all(), 3).get_page()
+def distill_get_articles():
+    # This function needs to return an iterable of dictionaries. Dictionaries
+    # are required as the URL this distill function is for has named parameters.
+    # You can just export a small subset of values here if you wish to
+    # limit what pages will be generated.
+    articles = Article.objects.all()
+    paginator = Paginator(articles, 3)
+    return paginator.page_range
 
 
 def point_standings(request):
