@@ -120,7 +120,7 @@ def distill_get_articles():
     articles = Article.objects.all()
     paginator = Paginator(articles, 3)
     for page in paginator.page_range:
-        yield paginator.get_page(page)
+        yield paginator.get_page(page).object_list()
 
 
 def point_standings(request):
