@@ -4,6 +4,32 @@
     src: url('Demogilkons-lx9wy.otf') format('opentype');
 }
 
+.fast {
+    font-family: 'Demogilkons', fallback, sans-serif;
+    padding-left: 2px;
+}
+
+.archive-link {
+    font-size: 17;
+    text-align: right;
+}
+
+.archive-link>a {
+    border-radius: 10px;
+    color: #ffbd00 !important;
+    background-color: #273544;
+    padding: 10px 20px;
+    /* Padding to make the link larger */
+    text-decoration: none;
+    /* Remove the underline */
+    display: inline-block;
+    /* Required for padding to work */
+}
+
+.archive-link>a:hover {
+    background-color: #a2c5d1;
+    color: #835c7e !important;
+}
 
 /* banner stuff */
 .banner {
@@ -33,20 +59,21 @@ station */
 .pagination {
     display: flex;
     flex-wrap: nowrap;
-    background-color: black;
+    border-radius: 10px;
+    /* color: #ffbd00 !important; */
+    font-family: 'Demogilkons', fallback, sans-serif;
 }
 
 .pagination>div {
     flex-grow: 1;
     text-align: center;
     line-height: 75px;
-    font-size: 16px;
-    font-family: Century Gothic, Helvetica, sans-serif;
+    font-size: 18px;
 }
 
 .page-btn {
-    color: white !important;
-    background-color: #406fa1;
+    color: #ffbd00 !important;
+    background-color: #273544;
     padding: 10px;
     border-radius: 2px;
 }
@@ -79,7 +106,6 @@ station */
 
 .article-image {
     max-width: 40%;
-    /* Adjust as needed */
     float: left;
     /* This will make the text wrap around the image */
     margin: 5px;
@@ -89,6 +115,11 @@ station */
 .article-text-content {
     /* This will contain the text within the div */
     padding: 1em 1em 1em 0;
+}
+
+.article-box h1 {
+    font-family: 'Demogilkons', fallback, sans-serif;
+    padding-left: 2px;
 }
 
 .article-box h2 {

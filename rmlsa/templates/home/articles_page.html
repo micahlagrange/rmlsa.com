@@ -1,8 +1,10 @@
 {% extends 'home/base.html' %}
 
-{% block title %}Articles page {{ page }} {% endblock %}
+{% block title %}News archive page {{ page }} {% endblock %}
 
 {% block content %}
+<h1 class="fast">News Archive</h1>
+
 <div class="article-content"></div>
 {% include 'home/pagination.html' %}
 {% include 'home/articles.html' %}

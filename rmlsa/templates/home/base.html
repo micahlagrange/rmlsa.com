@@ -34,40 +34,6 @@
     <script type="text/javascript" src="{% static 'home/templates/rt_dimensions/js/roktempus.js' %}"></script>
     <script type="text/javascript" src="{% static 'home/templates/rt_dimensions/rokzoom/rokzoom.js' %}"></script>
 
-    <!--[if IE]>
-            <script type="text/javascript">
-            sfHover = function() {
-                var sfEls = document.getElementById("horiz-menu").getElementsByTagName("LI");
-                for (var i=0; i<sfEls.length; i++) {
-                    sfEls[i].onmouseover=function() {
-                        this.className+=" sfHover";
-                    }
-                    sfEls[i].onmouseout=function() {
-                        this.className=this.className.replace(new RegExp(" sfHover\\b"), "");
-                    }
-                }
-            }
-            if (window.attachEvent) window.attachEvent("onload", sfHover);
-            </script>
-        <![endif]-->
-
-    <script type="text/javascript">
-        window.addEvent('load', function () {
-            RokZoom.init({
-                imageDir: "{% static 'home/templates/rt_dimensions/rokzoom/images/' %}",
-                resizeFX: {
-                    duration: 700,
-                    transition: Fx.Transitions.Cubic.easeOut,
-                    wait: true
-                },
-                opacityFX: {
-                    duration: 500,
-                    wait: false
-                }
-            });
-        });
-    </script>
-
     <link rel="stylesheet" href="{% static 'home/styles.css' %}" type="text/css">
 
     <style>
