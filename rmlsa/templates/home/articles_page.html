@@ -1,0 +1,10 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Articles page {{ page }} {% endblock %}
+
+{% block content %}
+<div class="article-content"></div>
+{% include 'home/pagination.html' %}
+{% include 'home/articles.html' %}
+{% include 'home/pagination.html' %}
+{% endblock %}

@@ -19,9 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 hostname = socket.gethostname()
 
 print('GOT HOSTNAME ' + hostname)
-if os.environ.get('DEVMODE'):
+if os.getenv('DEVMODE'):
     from rmlsa.settings_dev import *
-elif os.environ.get('ADMIN_SERVER'):
+elif os.getenv('ADMIN_SERVER'):
     from rmlsa.settings_prod import *
 else:
     from rmlsa.settings_static import *

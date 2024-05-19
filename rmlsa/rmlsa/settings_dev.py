@@ -39,6 +39,10 @@ DATABASES = {
 MEDIA_ROOT = dev_root + '/media'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+if os.getenv('STATIC'):
+    STATIC_ROOT = '/opt/rmlsa/static'  # it's ok that it isn't windowsy
+
 # Static files dirs setting requires not having static root
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR.parent, 'static', 'home', 'static'),

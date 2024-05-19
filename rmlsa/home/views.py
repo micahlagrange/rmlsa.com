@@ -103,7 +103,7 @@ def schedule(request):
 
 
 def list_articles(request, page=1):
-    return render(request, 'home/articles.html', {'page_obj': get_articles_page(page)})
+    return render(request, 'home/articles_page.html', {'news_articles': get_articles_page(page), 'page': page})
 
 
 def get_articles_page(page=1):
@@ -120,9 +120,7 @@ def distill_get_articles():
     articles = Article.objects.all()
     paginator = Paginator(articles, 3)
     for page in paginator.page_range:
-        yield {
-            'news_articles': paginator.get_page(page)
-        }
+        yield {'page': page}
 
 
 def point_standings(request):
