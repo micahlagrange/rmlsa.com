@@ -1,9 +1,11 @@
 __author__ = 'micah'
 
 import os
-
+from pathlib import Path
 
 print("LOADING STATIC SETTINGS")
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = TEMPLATE_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
@@ -26,6 +28,10 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = '/opt/rmlsa/media'
 STATIC_ROOT = '/opt/rmlsa/static'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR.parent, 'static', 'home', 'static')
+]
 
 LOGGING = {
     'version': 1,

@@ -18,6 +18,10 @@ urlpatterns = [
                  name='membership_form'),
     distill_path('point_standings/', home.views.point_standings,
                  name='point_standings'),
+    distill_path('articles/page/<int:page>/',
+                 home.views.list_articles,
+                 name='news_articles',
+                 distill_func=home.views.get_all_news_articles),
 
     # Login required functions
     path('edit/index/', home.views.gallery_admin, name='gallery_admin'),

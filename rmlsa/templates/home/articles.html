@@ -1,0 +1,51 @@
+{% block title %}Articles{% endblock %}
+
+{% if news_articles %}
+<div class="contentheading" id="article-content">Articles</div>
+
+{% for a in news_articles %}
+<div class="article-box">
+    <p style="float: right;"><i>Published on {{ a.pub_date }}</i></p>
+    <h2> {{ a.title }} </h2>
+    {% if a.subtitle %}<h4>{{ a.subtitle }}</h4>{% endif %}
+
+    <div style="padding: 1em 1em 1em 0;">
+
+        {% with a.articleimage_set.all|first as image %}
+        {% if image %}
+        <img class="article-image" src="{{ MEDIA_URL }}{{ image.image.url }}" title="{{ image.name }}">
+        {% endif %}
+        {% endwith %}
+
+        <!-- Article text contents -->
+        <p class="article-text-content">{{ a.text|linebreaks }}</p>
+        <br clear="left" /> <!-- This will help manage the text wrapping -->
+
+    </div>
+
+    {% with a.articleurl_set.all as urls %}
+    {% if urls %}
+    <div style="clear: both;">
+        <h3>Links</h3>
+        <ul id="no_bullet">
+            {% for url in urls %}
+            <li><a href="{{ url.url }}">{{ url.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with a.youtubeembedlink_set.all as yt_set %}
+    {% if yt_set %}
+
+    <h3>Youtube videos</h3>
+    {% for yt_video in yt_set %}
+    {{ yt_video.link|safe }}<br><br>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+{% endfor %}
+{% else %}
+{% endif %}

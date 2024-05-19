@@ -72,19 +72,17 @@ def home(request):
             # If there is at least 1 winner, add the winner column in html (see template)
             winners = True
 
-    articles = get_all_news_articles()
-
-    # pagination is only 3 lines of code
-    paginator = Paginator(articles, 2)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-
     welcome_message = WelcomeMessage.objects.latest('date_modified')
-    return render(request, 'home/home.html', {'home': 'active', 'random_image': get_random_image(),
-                                              'welcome_message': welcome_message, 'partners': get_partner_links(),
-                                              'rmlsa_events': upcoming_events, 'past_events': past_events,
-                                              'winners': winners, 'news_articles': page_obj,
-                                              'banner': latest_banner})
+    return render(request, 'home/home.html',
+                  {'home': 'active',
+                   'random_image': get_random_image(),
+                   'welcome_message': welcome_message,
+                   'partners': get_partner_links(),
+                   'rmlsa_events': upcoming_events,
+                   'past_events': past_events,
+                   'winners': winners,
+                   'news_articles': get_all_news_articles(1),
+                   'banner': latest_banner})
 
 
 def race_results(request):
@@ -104,31 +102,18 @@ def schedule(request):
                                                   'random_image': get_random_image(), 'partners': get_partner_links()})
 
 
-def get_all_news_articles():
+def list_articles(request, page=1):
+    return render(request, 'home/articles.html', {'page_obj': get_all_news_articles(page)})
+
+
+def get_all_news_articles(page=1):
     articles = Article.objects.all()
-    return articles
-
-
-def base_tc(tab=None):
-    """
-    The base template always needs this context
-    :return: base context for base template
-    """
-
-    if tab:
-        status = 'active'
-    else:
-        tab = 'all_tabs'
-        status = 'inactive'
-
-    template_context = {tab: status, 'random_image': get_random_image(), 'partners': get_partner_links(),
-                        'news_articles': get_all_news_articles()}
-
-    return template_context
+    paginator = Paginator(articles, 3)
+    return paginator.get_page(page)
 
 
 def point_standings(request):
-    return render(request, 'home/2014_point_standings.html', base_tc('info'))
+    return render(request, 'home/2014_point_standings.html')
 
 
 def getting_started(request):

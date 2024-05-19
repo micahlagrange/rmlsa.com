@@ -23,26 +23,14 @@ if os.environ.get('DEVMODE'):
     from rmlsa.settings_dev import *
 elif os.environ.get('ADMIN_SERVER'):
     from rmlsa.settings_prod import *
-elif hostname == 'Micah-MBP':
-    from rmlsa.settings_dev import *
-elif hostname == 'ip-172-31-47-20':
-    from rmlsa.settings_prod import *
-elif hostname == 'piserv':
-    from rmlsa.settings_test import *
 else:
     from rmlsa.settings_static import *
 
-LOGIN_REDIRECT_URL = '/edit/index/'
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
 SECRET_KEY_DIR = '/etc/rmlsa.com.conf/secretkey' if not platform.system(
 ) == 'Windows' else os.getenv('APPDATA') + '/rmlsa/secretkey'
+
 with open(SECRET_KEY_DIR) as f:
     SECRET_KEY = f.read().strip()
-
-# SECURITY WARNING: don't run with debug turned on in production!
 
 TEMPLATES = [
     {
@@ -51,7 +39,6 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                # 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -64,9 +51,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR.parent, 'static', 'home', 'static')
-]
 
 
 ALLOWED_HOSTS = [
@@ -92,10 +76,6 @@ INSTALLED_APPS = (
     'classifieds',
     'django_distill'
 )
-
-if socket.gethostname() == 'ip-172-31-47-20':
-    INSTALLED_APPS += ('mod_wsgi.server',)
-
 
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -1,6 +1,11 @@
 __author__ = 'micah'
 
+import os
+from pathlib import Path
+
 print("LOADING PROD SETTINGS")
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = TEMPLATE_DEBUG = False
 
@@ -23,6 +28,10 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = '/opt/rmlsa/static'
 MEDIA_ROOT = '/opt/rmlsa/media'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR.parent, 'static', 'home', 'static')
+]
 
 SERVER_EMAIL = 'rmlsa.site@gmail.com'
 

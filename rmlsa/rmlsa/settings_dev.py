@@ -1,9 +1,12 @@
 __author__ = 'micah'
 
 import os
+from pathlib import Path
 import platform
 
 print("LOADING DEV SETTINGS")
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = TEMPLATE_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = False
@@ -33,11 +36,13 @@ DATABASES = {
 }
 
 
-# Static files dirs setting requires not having static root
-STATICFILES_DIRS = (dev_static_dir, '../static/')
 MEDIA_ROOT = dev_root + '/media'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+# Static files dirs setting requires not having static root
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR.parent, 'static', 'home', 'static'),
+    dev_static_dir)
 
 LOGGING = {
     'version': 1,
