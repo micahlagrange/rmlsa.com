@@ -81,7 +81,7 @@ def home(request):
                    'rmlsa_events': upcoming_events,
                    'past_events': past_events,
                    'winners': winners,
-                   'news_articles': get_all_news_articles(1),
+                   'news_articles': get_articles_page(1),
                    'banner': latest_banner})
 
 
@@ -103,13 +103,17 @@ def schedule(request):
 
 
 def list_articles(request, page=1):
-    return render(request, 'home/articles.html', {'page_obj': get_all_news_articles(page)})
+    return render(request, 'home/articles.html', {'page_obj': get_articles_page(page)})
 
 
-def get_all_news_articles(page=1):
+def get_articles_page(page=1):
     articles = Article.objects.all()
     paginator = Paginator(articles, 3)
     return paginator.get_page(page)
+
+
+def distill_get_articles(page=1):
+    return Paginator(Article.objects.all(), 3).get_page()
 
 
 def point_standings(request):

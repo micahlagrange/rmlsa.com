@@ -21,7 +21,7 @@ urlpatterns = [
     distill_path('articles/page/<int:page>/',
                  home.views.list_articles,
                  name='news_articles',
-                 distill_func=home.views.get_all_news_articles),
+                 distill_func=home.views.distill_get_articles),
 
     # Login required functions
     path('edit/index/', home.views.gallery_admin, name='gallery_admin'),
