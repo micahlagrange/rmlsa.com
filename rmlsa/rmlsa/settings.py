@@ -106,3 +106,5 @@ DISTILL_SKIP_ADMIN_DIRS = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ADMINS = [('micah', 'turner.micah@gmail.com')]
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = "/opt/rmlsa/admin-emails"
