@@ -9,7 +9,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = TEMPLATE_DEBUG = False
 
-
 # db, media, static dirs
 DATABASES = {
     'default': {
@@ -45,6 +44,15 @@ LOGGING = {
         },
     },
     'handlers': {
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+        "mail_admins": {
+            "level": "ERROR",
+            "class": "django.utils.log.AdminEmailHandler",
+        },
         'file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
@@ -55,6 +63,11 @@ LOGGING = {
         },
     },
     'loggers': {
+        "django.request": {
+            "handlers": ["mail_admins"],
+            "level": "ERROR",
+            "propagate": False,
+        },
         'django': {
             'handlers': ['file'],
             'level': 'INFO',
@@ -63,6 +76,10 @@ LOGGING = {
         'basic_logger': {
             'handlers': ['file'],
             'level': 'INFO',
+        },
+        "django": {
+            "handlers": ["console"],
+            "propagate": True,
         },
     }
 }

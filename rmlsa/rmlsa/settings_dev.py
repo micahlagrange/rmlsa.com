@@ -46,7 +46,8 @@ if os.getenv('STATIC'):
 # Static files dirs setting requires not having static root
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR.parent, 'static', 'home', 'static'),
-    dev_static_dir)
+    dev_static_dir,
+    "../static/")
 
 LOGGING = {
     'version': 1,
