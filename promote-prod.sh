@@ -24,11 +24,12 @@ path_string="${path_array[*]}"
 if [ -z "$path_string" ]
 then
   echo "path_string is empty"
+  exit 1
 else
   echo "path_string is NOT empty"
+  echo "Invalidating cache"
 fi
 
-exit 1
 
 # Create a single invalidation with all the paths
 aws --profile prod \
