@@ -2,6 +2,10 @@
 #
 set -e
 
+sudo chown -R ec2-user:nginx /opt/rmlsa/logging
+sudo chown -R ec2-user:nginx /opt/rmlsa/logging/*
+sudo chmod 664 /opt/rmlsa/logging/*
+
 cd rmlsa
 
 # Build static site to /opt
