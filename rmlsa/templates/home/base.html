@@ -343,21 +343,6 @@
                                                         <div class="accent-right"></div>
                                                     </div>
 
-                                                    {% if sidebar_search == True %}
-                                                    <div class="moduletable-hilite1">
-                                                        <h3>Search</h3>
-                                                        <form action="{% url 'search:search' %}" method="get">
-                                                            <div class="search">
-                                                                <form>
-                                                                    <input name="searchword" alt="search"
-                                                                        class="inputbox" type="text" size="12">
-                                                                    <input type="submit" value="GO">
-                                                                </form>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    {% endif %}
-
                                                     {% if random_image.thumbnail %}
                                                     <div class="moduletable-hilite1">
                                                         <h3>From the Gallery</h3>
