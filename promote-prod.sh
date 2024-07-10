@@ -23,19 +23,15 @@ path_string="${path_array[*]}"
 
 if [ -z "$path_string" ]
 then
-  echo "path_string is empty"
-  exit 1
+  echo "No paths to invalidate, clearing everyrthing"
+  path_string='/*'
 else
   echo "path_string is NOT empty"
   echo "Invalidating cache"
 fi
 
-
-# Create a single invalidation with all the paths
 aws --profile prod \
         cloudfront \
         create-invalidation \
         --distribution-id ${DISTRIB_ID} \
-        --paths ${path_string}
-
-
+        --paths "${path_string}"
