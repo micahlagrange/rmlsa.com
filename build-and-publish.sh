@@ -6,7 +6,7 @@ sudo chown -R ec2-user:nginx /opt/rmlsa/logging
 sudo chown -R ec2-user:nginx /opt/rmlsa/logging/*
 sudo chmod 664 /opt/rmlsa/logging/*
 
-cd rmlsa
+cd ~/rmlsa.com/rmlsa
 
 # Build static site to /opt
 ../scripts/distill-build.sh
