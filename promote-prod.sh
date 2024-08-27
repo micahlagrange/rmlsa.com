@@ -30,7 +30,7 @@ else
     echo "Invalidating cache"
 fi
 
-echo aws --profile prod \
+aws --profile prod \
 cloudfront \
 create-invalidation \
 --distribution-id ${DISTRIB_ID} \
