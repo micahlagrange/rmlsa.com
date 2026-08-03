@@ -79,6 +79,28 @@
         #bg-bottom-ie {
             background: url("{% static 'home/templates/rt_dimensions/images/backgrounds/texture-17.jpg' %}") 50% 100% no-repeat;
         }
+
+        /* The credit is a <span id="rocket">, but the theme only styles
+           img#rocket, so it rendered as unstyled text overflowing the 35px
+           bar. Style the span explicitly and center it in the bar. */
+        #footer-bar {
+            height: auto;
+            min-height: 35px;
+            padding: 9px 0;
+            background: #000;
+            text-align: center;
+        }
+
+        #footer-bar #rocket {
+            display: inline-block;
+            width: auto;
+            height: auto;
+            background: none;
+            color: #ccc;
+            font-family: Tahoma, Geneva, Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.2;
+        }
     </style>
 </head>
 
@@ -489,8 +511,7 @@
                         </div>
                         <div id="footer-bar">
                             <div align="center">
-                                <span id="rocket">website by...<br> Micah Turner</span>
-                                </a>
+                                <span id="rocket">website by... Micah Turner</span>
                             </div>
                         </div>
                         <div id="footer-shadow">
